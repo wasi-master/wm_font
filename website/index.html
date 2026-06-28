@@ -3,17 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WM Font Showcase - A Handwriting Typeface</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <>
-    <!-- Choose a theme (e.g., VS Code, GitHub, Monokai) -->
+    <title>WM Font Showcase</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css"
     />
 
-    <!-- Main Highlight.js library -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/css.min.js"></script>
     <link
@@ -34,7 +32,7 @@
       <div class="hero-text">
         <h1>Introducing the all-new <span class="highlight">WM Font</span></h1>
         <p class="description">
-          Fully hand-drawn typeface perfect for text that mimics handwriting.
+A hand drawn typeface that is created to mimic the look and feel of handwriting.
         </p>
         <div class="button-group">
           <button class="btn-primary" id="play-btn">Try the Playground</button>
@@ -47,7 +45,7 @@
           <span class="card-action" id="reset-btn">Reset Text</span>
         </div>
         <div class="editable-text" contenteditable="true">
-          Edit this text to see the font in action!
+          Edit the text below to take a feel of WM Font.
         </div>
       </div>
     </main>
@@ -56,15 +54,13 @@
     <section class="examples-container" id="examples-section">
       <h2 class="section-title">Examples</h2>
       <p class="section-subtitle">
-        See how WM Font looks in different contexts and sizes.
+        See how WM Font works in different fields.
       </p>
       <div class="examples-grid">
         <div class="example-card">
           <h3>Paragraph Example</h3>
           <p class="example-text paragraph-example">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            vehicula, urna eu bibendum cursus, justo erat facilisis nunc, a
-            tincidunt nisi nisl a justo.
+            Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet consectetur adipiscing elit quisque faucibus ex sapien. Quisque faucibus ex sapien vitae pellentesque sem placerat. Vitae pellentesque sem placerat in id cursus mi.
           </p>
         </div>
         <div class="example-card">
@@ -106,14 +102,11 @@
         <div class="example-card">
           <h3>Justified Text Example</h3>
           <p class="justified">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            vehicula, urna eu bibendum cursus, justo erat facilisis nunc, a
-            tincidunt nisi nisl a justo.
+            Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet consectetur adipiscing elit quisque faucibus ex sapien. Quisque faucibus ex sapien vitae pellentesque sem placerat. Vitae pellentesque sem placerat in id cursus mi.
           </p>
         </div>
       </div>
     </section>
-
     <!-- Use cases section -->
     <section class="use-cases-container" id="use-cases-section">
       <h2 class="section-title">Use Cases</h2>
@@ -145,14 +138,13 @@
       </div>
     </section>
 
-    <!-- Glyph Set Section -->
+    <!-- Glyph Section -->
     <section class="glyphs-container" id="glyphs-section">
       <h2 class="section-title">Glyph Set</h2>
       <p class="section-subtitle">
         Explore all 185 characters and symbols available in WM Font.
       </p>
 
-      <!-- Live Search and Category Filters -->
       <div class="glyphs-filter-bar">
         <div class="search-box">
           <svg
@@ -189,12 +181,9 @@
         </div>
       </div>
 
-      <!-- Dynamic Glyph Grid -->
       <div class="glyph-grid" id="glyph-grid">
-        <!-- Populated dynamically via JavaScript -->
       </div>
 
-      <!-- Expand/Collapse Button -->
       <div
         class="glyph-expand-container"
         id="glyph-expand-container"
@@ -261,7 +250,7 @@
         font-family: 'WM Font', sans-serif;
       }
       </code></pre>
-      Make sure to adjust the file paths in the `src` property to point to the correct location of the font files in your project relative to your CSS file.
+      <p>Make sure to adjust the file paths in the `src` property to point to the correct location of the font files in your project relative to your CSS file.</p>
     </section>
     <section class="downloads-container" id="download-section">
       <h2 class="section-title">Available Formats</h2>
@@ -406,6 +395,18 @@
         </div>
       </div>
     </section>
+
+    <!-- Insert the footer block here -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2026 WM Font. Created by <a href="https://wasi-master.github.io/" target="_blank">Arian Mollik Wasi</a>.</p>
+        <div class="footer-links">
+          <a href="https://github.com/wasi-master/wm_font" target="_blank">GitHub</a>
+          <span class="separator">•</span>
+          <a href="https://typeface.hackclub.com/" target="_blank">Hack Club Typeface</a>
+        </div>
+      </div>
+    </footer>
 
     <script src="glyphs.js"></script>
     <script src="script.js"></script>

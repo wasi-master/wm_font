@@ -254,7 +254,7 @@ button {
 }
 
 .downloads-container {
-  padding: 4rem 2rem 8rem 2rem;
+  padding: 4rem 2rem 4rem 2rem;
 }
 
 /* Filter Controls */
@@ -485,52 +485,118 @@ button {
   padding: 6rem 2rem 8rem 2rem;
   border-top: 1px solid var(--border-color);
 }
-.about-container p {
+.about-container p,
+.programming p {
   text-align: justify;
   font-size: 1.25rem;
   max-width: 1000px;
   margin: 0 auto;
 }
+.programming pre {
+  font-size: 1.2rem;
+}
 
-/* Responsive adjustments */
-@media (max-width: 968px) {
-  .hero-container {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    padding-bottom: 4rem;
-    text-align: center;
-  }
+/* WM Font Warm Light hljs theme */
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1.5em;
+  background: #FFFDF9; /* Warm Off-White */
+  color: #1F1E1D;      /* Deep Charcoal */
+}
 
-  .hero-text {
-    align-items: center;
-  }
+.hljs-comment,
+.hljs-quote {
+  color: #8E847C;      /* Muted Warm Grey */
+  font-style: italic;
+}
 
-  .description {
-    max-width: 100%;
-  }
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-addition {
+  color: #D35400;      /* Terracotta Accent */
+  font-weight: 500;
+}
 
-  .button-group {
-    justify-content: center;
-  }
+.hljs-string,
+.hljs-meta .hljs-string,
+.hljs-regexp,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #2ECC71;      /* Grass Green */
+}
 
-  .downloads-container {
-    padding-top: 3rem;
-    padding-bottom: 5rem;
-  }
+.hljs-attribute,
+.hljs-name,
+.hljs-section,
+.hljs-type,
+.hljs-built_in,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #3498DB;      /* Soft Blue */
+}
 
-  .glyph-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-link {
+  color: #E67E22;      /* Warm Amber */
+}
 
-  .examples-grid,
-  .use-cases-grid,
-  .download-grid {
-    grid-template-columns: 1fr;
-  }
+.hljs-title,
+.hljs-params,
+.hljs-tag {
+  color: #1F1E1D;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }
 
 @media (max-width: 480px) {
   .glyph-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* Footer Styling */
+.footer {
+  width: 100%;
+  padding: 3.5rem 2rem;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.footer p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.separator {
+  color: var(--border-color);
 }
