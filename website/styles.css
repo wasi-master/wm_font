@@ -1,0 +1,242 @@
+/* Reset basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #FBF8F1;
+    --bg-gradient: linear-gradient(135deg, #FBF8F1 0%, #F5EFEB 100%);
+    --text-main: #1A1A1A;
+    --text-muted: #5A5A5A;
+    --accent-orange: #CC6633;
+    --accent-orange-hover: #B35526;
+    --accent-light: rgba(204, 102, 51, 0.1);
+    --card-bg: #FFFFFF;
+    --border-color: rgba(26, 26, 26, 0.08);
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+}
+
+@font-face {
+  font-family: 'WmFont';
+  src: url(../font/WmFont-Regular.ttf) format('truetype'),
+       url(../font/WmFont-Regular.woff) format('woff'),
+       url(../font/WmFont-Regular.woff2) format('woff2'),
+       url(../font/WmFont-Regular.otf) format('opentype'),
+       url(../font/WmFont-Regular.svg) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* 2. Navigation Styling */
+.navbar {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'WmFont', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-main);
+}
+
+/* 3. Main Layout */
+.hero-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem 2rem 6rem 2rem;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: calc(100vh - 120px);
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* 4. Typography Styling */
+.subtitle {
+    color: var(--accent-orange);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-family: 'WmFont', sans-serif;
+    font-size: 4.2rem;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    font-weight: normal;
+}
+
+.highlight {
+    color: var(--accent-orange);
+    position: relative;
+    display: inline-block;
+}
+
+.description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 90%;
+}
+
+/* 5. Buttons */
+.button-group {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+button, .card-action {
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button {
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--accent-orange);
+    color: white;
+    box-shadow: 0 4px 14px rgba(204, 102, 51, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(204, 102, 51, 0.4);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-main);
+}
+
+.btn-outline:hover {
+    border-color: var(--text-main);
+    background-color: rgba(26, 26, 26, 0.02);
+    transform: translateY(-2px);
+}
+
+.navbar .btn-outline {
+    padding: 0.6rem 1.4rem;
+    font-size: 0.9rem;
+}
+
+/* 6. The Interactive Card */
+.hero-card {
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 50px rgba(0,0,0,0.08);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.card-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+.card-action {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-orange);
+    cursor: pointer;
+    user-select: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.card-action:hover {
+    background-color: var(--accent-light);
+    color: var(--accent-orange-hover);
+}
+
+.editable-text {
+    font-family: 'WmFont', sans-serif;
+    font-size: 2.2rem;
+    line-height: 1.4;
+    outline: none;
+    min-height: 150px;
+    color: var(--text-main);
+    word-break: break-word;
+}
+
+/* Responsive adjustments */
+@media (max-width: 968px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding-bottom: 4rem;
+        text-align: center;
+    }
+    
+    .hero-text {
+        align-items: center;
+    }
+    
+    .description {
+        max-width: 100%;
+    }
+    
+    .button-group {
+        justify-content: center;
+    }
+}
