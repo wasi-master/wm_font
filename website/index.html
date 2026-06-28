@@ -6,6 +6,16 @@
     <title>WM Font Showcase - A Handwriting Typeface</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <>
+    <!-- Choose a theme (e.g., VS Code, GitHub, Monokai) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css"
+    />
+
+    <!-- Main Highlight.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/css.min.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -139,7 +149,7 @@
     <section class="glyphs-container" id="glyphs-section">
       <h2 class="section-title">Glyph Set</h2>
       <p class="section-subtitle">
-        Explore all 181 characters and symbols available in WM Font.
+        Explore all 185 characters and symbols available in WM Font.
       </p>
 
       <!-- Live Search and Category Filters -->
@@ -183,8 +193,76 @@
       <div class="glyph-grid" id="glyph-grid">
         <!-- Populated dynamically via JavaScript -->
       </div>
+
+      <!-- Expand/Collapse Button -->
+      <div
+        class="glyph-expand-container"
+        id="glyph-expand-container"
+        style="display: none"
+      >
+        <button id="glyph-expand-btn" class="btn-outline">Show More</button>
+      </div>
     </section>
 
+    <!-- About Section -->
+    <section class="about-container" id="about-section">
+      <h2 class="section-title">About WM Font</h2>
+      <p>
+        <b>WM Font:</b> It is a fully authentic font designed from the ground up
+        by creator Arian Mollik Wasi. The font was initially created for the
+        <a href="https://typeface.hackclub.com/" target="_blank"
+          >Typeface challenge at Hack Club</a
+        >. Wasi used the online tool
+        <a href="https://calligraphr.com/" target="_blank">Calligraphr</a> to
+        convert his handwriting into a digital font. To write the font, Wasi
+        used a Samsung Galaxy S25 Ultra with a stylus, which allowed him to
+        create precise and detailed strokes. The font contains 185 characters,
+        including uppercase and lowercase letters, numbers, punctuation marks,
+        and special symbols. Wasi personally uses special unicode characters a
+        lot and thus he has included these characters in the font as well. Wasi
+        has a personal website available at
+        <a href="https://wasi-master.github.io/" target="_blank"
+          >wasi-master.github.io</a
+        >
+        where he showcases his coding projects.<br />
+        <b>License:</b> The font is licensed under the SIL Open Font License
+        (OFL). The code for this website is licensed under the MIT License. Both
+        are open-source licenses that allow you to use, modify, and distribute
+        the font and website code freely, as long as you comply with the terms
+        of the license. The source code can be found on
+        <a href="https://github.com/wasi-master/wm_font" target="_blank"
+          >GitHub</a
+        >.
+      </p>
+    </section>
+    <section class="programming" id="programming">
+      <h2 class="section-title">Programmatic Use</h2>
+      <p>
+        You can use WM Font in your web projects by including it via CSS. Here's
+        an example of how to include the font in your CSS:
+      </p>
+      <pre>
+      <code class="code-block language-css">
+      @font-face {
+        font-family: 'WM Font';
+        src: url('./WmFont-Regular.woff2') format('woff2'),
+            url('./WmFont-Regular.woff') format('woff'),
+            url('./WmFont-Regular.ttf') format('truetype'),
+            url('./WmFont-Regular.otf') format('opentype'),
+            url('./WmFont-Regular.svg#WMFont') format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+      </code></pre>
+      <p>After including the font, you can use it in your CSS like this:</p>
+      <pre>
+      <code class="code-block language-css">
+      body {
+        font-family: 'WM Font', sans-serif;
+      }
+      </code></pre>
+      Make sure to adjust the file paths in the `src` property to point to the correct location of the font files in your project relative to your CSS file.
+    </section>
     <section class="downloads-container" id="download-section">
       <h2 class="section-title">Available Formats</h2>
       <p class="section-subtitle">

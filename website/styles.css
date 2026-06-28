@@ -72,6 +72,7 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+  min-height: calc(100vh - 120px);
 }
 
 .hero-text {
@@ -88,6 +89,15 @@ h1 {
   line-height: 1.15;
   margin-bottom: 1.5rem;
   font-weight: normal;
+}
+
+a {
+  color: var(--accent-orange);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: var(--accent-orange-hover);
 }
 
 .highlight {
@@ -451,6 +461,25 @@ button {
 .download-icon {
   width: 18px;
   height: 18px;
+}
+
+.glyph-expand-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.about-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 6rem 2rem 8rem 2rem;
+  border-top: 1px solid var(--border-color);
+}
+.about-container p {
+  text-align: justify;
+  font-size: 1.25rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 /* Responsive adjustments */

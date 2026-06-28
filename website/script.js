@@ -40,8 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const glyphGrid = document.getElementById("glyph-grid");
   const searchInput = document.getElementById("glyph-search");
   const pillsContainer = document.getElementById("category-pills");
+  const expandContainer = document.getElementById("glyph-expand-container");
+  const expandBtn = document.getElementById("glyph-expand-btn");
 
   let currentCategory = "all";
+  let isExpanded = false;
+  const LIMIT = 24; // Initial number of glyphs to show
 
   if (
     glyphGrid &&
@@ -65,10 +69,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (filtered.length === 0) {
         glyphGrid.innerHTML = `<div class="no-results">No glyphs found matching your search.</div>`;
+        if (expandContainer) expandContainer.style.display = "none";
         return;
       }
 
-      glyphGrid.innerHTML = filtered
+      // Determine items to display based on expand status
+      const showButton = filtered.length > LIMIT;
+      const itemsToRender = (isExpanded || !showButton) ? filtered : filtered.slice(0, LIMIT);
+
+      glyphGrid.innerHTML = itemsToRender
         .map(
           (item) => `
                 <div class="glyph-card" data-unicode="${item.unicode}">
@@ -78,6 +87,16 @@ document.addEventListener("DOMContentLoaded", () => {
             `,
         )
         .join("");
+
+      // Update button visibility and text
+      if (expandContainer && expandBtn) {
+        if (showButton) {
+          expandContainer.style.display = "flex";
+          expandBtn.textContent = isExpanded ? "Show Less" : "Show More";
+        } else {
+          expandContainer.style.display = "none";
+        }
+      }
     };
 
     // Utility to escape HTML tags
@@ -107,7 +126,22 @@ document.addEventListener("DOMContentLoaded", () => {
       renderGlyphs();
     });
 
+    // Handle expand/collapse button click
+    if (expandBtn) {
+      expandBtn.addEventListener("click", () => {
+        isExpanded = !isExpanded;
+        renderGlyphs();
+        if (!isExpanded) {
+          const glyphsSection = document.getElementById("glyphs-section");
+          if (glyphsSection) {
+            glyphsSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      });
+    }
+
     // Load grid initially
     renderGlyphs();
   }
+  hljs.highlightAll();
 });
