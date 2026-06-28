@@ -83,14 +83,6 @@ body {
 }
 
 /* 4. Typography Styling */
-.subtitle {
-    color: var(--accent-orange);
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 1rem;
-}
 
 h1 {
     font-family: 'WmFont', sans-serif;
@@ -231,12 +223,24 @@ h1 {
  ====================================================================
    7. Glyph Set Section Styling
    ========================================================================== */
-.glyphs-container {
+.glyphs-container,
+.examples-container,
+.use-cases-container,
+.downloads-container {
     width: 100%;
     max-width: 1200px;
-    padding: 6rem 2rem 2rem 2rem;
     margin-top: 2rem;
     border-top: 1px solid var(--border-color);
+}
+
+.glyphs-container,
+.examples-container,
+.use-cases-container {
+    padding: 6rem 2rem 2rem 2rem;
+}
+
+.downloads-container {
+    padding: 4rem 2rem 8rem 2rem;
 }
 
 /* Filter Controls */
@@ -332,6 +336,45 @@ h1 {
     color: var(--text-muted);
     font-size: 1.1rem;
 }
+
+/* Example section */
+.examples-grid,
+.use-cases-grid,
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.example-card,
+.use-case-card,
+.download-card {
+    background-color: var(--card-bg);
+    padding: 2.2rem;
+    border-radius: 24px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.example-card,
+.use-case-card {
+    font-family: 'WmFont', sans-serif;
+    font-size: 1.5rem;
+}
+
+.justified {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+
+
+
 
 /* Card Styling */
 .glyph-card {
@@ -578,13 +621,7 @@ h1 {
 }
 
 /* Downloads Section */
-.downloads-container {
-    width: 100%;
-    max-width: 1200px;
-    padding: 4rem 2rem 8rem 2rem;
-    margin-top: 2rem;
-    border-top: 1px solid var(--border-color);
-}
+
 
 .section-title {
     font-family: 'WmFont', sans-serif;
@@ -601,24 +638,7 @@ h1 {
     margin-bottom: 3.5rem;
 }
 
-.download-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
 
-.download-card {
-    background-color: var(--card-bg);
-    padding: 2.2rem;
-    border-radius: 24px;
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 1.5rem;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-}
 
 .download-card:hover {
     transform: translateY(-6px);
@@ -626,25 +646,11 @@ h1 {
     border-color: var(--accent-orange);
 }
 
-.card-top {
+.card-title-group {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 0.3rem;
 }
-
-.format-badge {
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 0.3rem 0.8rem;
-    border-radius: 50px;
-    letter-spacing: 0.5px;
-}
-
-.woff2 { background-color: #E3F2FD; color: #0D47A1; }
-.otf { background-color: #E8F5E9; color: #1B5E20; }
-.ttf { background-color: #FFF3E0; color: #E65100; }
-.woff { background-color: #F3E5F5; color: #4A148C; }
-.svg { background-color: #ECEFF1; color: #37474F; }
 
 .file-size {
     font-size: 0.85rem;
@@ -654,17 +660,10 @@ h1 {
 
 .download-card h3 {
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: bold;
     color: var(--text-main);
-    margin-top: 0.2rem;
 }
 
-.download-card p {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-}
 
 .btn-download {
     display: flex;
@@ -678,6 +677,7 @@ h1 {
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
+    margin-top: auto;
     transition: background-color 0.25s, color 0.25s, transform 0.25s;
 }
 
