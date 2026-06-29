@@ -461,5 +461,337 @@ document.addEventListener("DOMContentLoaded", () => {
 
   hljs.addPlugin(new CopyButtonPlugin());
   hljs.highlightAll();
+
+  // ==========================================================================
+  // Make a Comic Section
+  // ==========================================================================
+  const comicSelector   = document.getElementById('comic-selector');
+  const comicFrame      = document.getElementById('comic-editor-frame');
+  const comicImage      = document.getElementById('comic-image');
+  const comicResetBtn   = document.getElementById('comic-reset-btn');
+  const comicDownloadBtn = document.getElementById('comic-download-btn');
+
+  if (!comicSelector || !comicFrame || !comicImage) return;
+
+  // ------------------------------------------------------------------
+  // Comic data: each comic has an image path, natural dimensions, and
+  // an array of bubble descriptors.
+  //
+  // Bubble fields:
+  //   id       - unique DOM id
+  //   text     - pre-filled default text (from OCR of the original)
+  //   left/top/width/height - percentage of the rendered image size
+  //   caption  - if true, adds .caption class (italic, slightly smaller)
+  // ------------------------------------------------------------------
+ const COMICS = {
+  1: {
+    src: './assets/comic_strip_1.png',
+    alt: 'Comic Strip 1: Planning the Camping Trip',
+    naturalW: 2000, naturalH: 1600,
+    fontScale: 0.011,
+    bubbles: [
+      {
+        id: 'c1-b1',
+        text: '"Hey, is all your camping gear ready?',
+        left: 15.7, top: 24.1, width: 9.3, height: 7.5
+      },
+      {
+        id: 'c1-b3',
+        text: "'Almost. I just bought a tent, but I don't have a portable stove yet",
+        left: 34.8, top: 22, width: 9.1, height: 8.1
+      },
+      {
+        id: 'c1-b4',
+        text: "'That's great. Oh yeah, did you bring a sleeping bag?'",
+        left: 57.4, top: 22.5, width: 9.4, height: 7.8
+      },
+      {
+        id: 'c1-b5',
+        text: "Just wow! If we don't have one, we can just cook over a campfire'",
+        left: 71.2, top: 22, width: 9.5, height: 7.8
+      },
+      {
+        id: 'c1-b7',
+        text: "'Yeah, two in fact. One for you, so you don't get cold.'",
+        left: 16.5, top: 58, width: 9.2, height: 7.6
+      },
+      {
+        id: 'c1-b8',
+        text: "Wow, thanks. So, shall we leave tomorrow morning at 6?'",
+        left: 28.8, top: 58, width: 9.3, height: 7.8
+      },
+      {
+        id: 'c1-b9',
+        text: "'Ready! Don't forget to bring coffee, it'll make the trip even better.",
+        left: 66.6, top: 57.5, width: 8.7, height: 8.2
+      },
+      {
+        id: 'c1-b10',
+        text: "'Deal, this camping trip is going to be fun!'",
+        left: 79.2, top: 61.4, width: 8.8, height: 7.6
+      }
+    ]
+  },
+  2: {
+    src: './assets/comic_strip_2.png',
+    alt: 'Comic Strip 2: Adventurous Elephant',
+    naturalW: 2000, naturalH: 1600,
+    fontScale: 0.013,
+    bubbles: [
+      {
+        id: 'c2-b1',
+        text: "'The world is so big. I want to explore more than just this forest!'",
+        left: 18.5, top: 21.1, width: 11.2, height: 10.2
+      },
+      {
+        id: 'c2-b2',
+        text: "'Who knows, I might find that chocolate river they say is so sweet!'",
+        left: 68.5, top: 22.1, width: 11.7, height: 9.5
+      },
+      {
+        id: 'c2-b3',
+        text: "(The elephant is walking in the meadow, encountering a small, confused-looking bird)",
+        left: 4.8, top:59, width: 40.5, height: 7.8,
+        caption: true
+      },
+      {
+        id: 'c2-b4',
+        text: "I'm lost. My home is in the big tree over the hill",
+        left: 61.8, top: 68.2, width: 9, height: 8
+      },
+      {
+        id: 'c2-b5',
+        text: "Don't worry, I'll help you get home! The adventure just got even more exciting!",
+        left: 75, top: 61, width: 11.5, height: 8.9
+      }
+    ]
+  },
+  3: {
+    src: './assets/comic_strip_3.png',
+    alt: 'Comic Strip 3: Morning Rush',
+    naturalW: 1200, naturalH: 927,
+    fontScale: 0.02,
+    bubbles: [
+      {
+        id: 'c3-b1',
+        text: 'Oh, score! Would you look at that? A perfectly good, delicious-looking bone just sitting right out here in the open, waiting for me!',
+        left: 11.9, top: 7.1, width: 36.3, height: 17.6
+      },
+      // {
+      //   id: 'c3-b2',
+      //   text: '',
+      //   left: 75.1, top: 7.7, width: 15, height: 10
+      // },
+      {
+        id: 'c3-b3',
+        text: 'I think I\'ll just carry it across this river to the other side, where it\'s nice, safe, and quiet...',
+        left: 3.6, top: 64.5, width: 22.2, height: 16.6
+      },
+      {
+        id: 'c3-b4',
+        text: 'Excuse me, are you going to throw that or just stand there?',
+        left: 72.2, top: 61.8, width: 22.7, height: 11.5
+      }
+    ]
+  }
+};
+
+  let activeComicKey = 2;
+
+  // ------------------------------------------------------------------
+  // Render: inject bubble divs for the given comic key
+  // ------------------------------------------------------------------
+  function renderBubbles(key) {
+    // Remove all existing bubbles
+    comicFrame.querySelectorAll('.comic-bubble').forEach(el => el.remove());
+
+    const comic = COMICS[key];
+    if (!comic) return;
+
+    comic.bubbles.forEach(b => {
+      const div = document.createElement('div');
+      div.className = 'comic-bubble' + (b.caption ? ' caption' : '');
+      div.id = b.id;
+      div.contentEditable = 'true';
+      div.setAttribute('aria-label', 'Speech bubble text – editable');
+      div.setAttribute('spellcheck', 'false');
+      div.textContent = b.text;
+
+      // Percentage-based positioning
+      div.style.left   = b.left   + '%';
+      div.style.top    = b.top    + '%';
+      div.style.width  = b.width  + '%';
+      div.style.height = b.height + '%';
+
+      comicFrame.appendChild(div);
+    });
+
+    updateBubbleFontSize();
+  }
+
+  // ------------------------------------------------------------------
+  // Dynamically scale font size so text fills each bubble proportionally
+  // as the image scales with the container width.
+  // Base reference: the natural image width is treated as 100%.
+  // At natural width, font size = 1.55% of the natural width.
+  // ------------------------------------------------------------------
+  function updateBubbleFontSize() {
+    const key = activeComicKey;
+    const comic = COMICS[key];
+    if (!comic) return;
+
+    const renderedW = comicImage.offsetWidth;
+    if (!renderedW) return;
+
+    // Scale factor relative to natural width
+    const scale = renderedW / comic.naturalW;
+    // Base font at natural size: driven by each comic's fontScale property
+    const basePx = comic.naturalW * (comic.fontScale ?? 0.009);
+    const scaledPx = Math.max(8, Math.round(basePx * scale));
+
+    comicFrame.style.setProperty('--bubble-font-size', scaledPx + 'px');
+  }
+
+  // Use ResizeObserver to keep font size in sync as the container resizes
+  const resizeObserver = new ResizeObserver(() => updateBubbleFontSize());
+  resizeObserver.observe(comicFrame);
+
+  // ------------------------------------------------------------------
+  // Switch comic on pill click
+  // ------------------------------------------------------------------
+  comicSelector.addEventListener('click', e => {
+    const pill = e.target.closest('.pill[data-comic]');
+    if (!pill) return;
+
+    const key = parseInt(pill.dataset.comic, 10);
+    if (key === activeComicKey) return;
+
+    // Update active pill
+    comicSelector.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+
+    // Clear stale bubbles immediately so old text never lingers
+    comicFrame.querySelectorAll('.comic-bubble').forEach(el => el.remove());
+
+    // Update state and image
+    activeComicKey = key;
+    const comic = COMICS[key];
+
+    // Cancel any pending onload from a previous switch
+    comicImage.onload = null;
+
+    comicImage.src = comic.src;
+    comicImage.alt = comic.alt;
+
+    // Guard: only render if this key is still the active one when the image loads
+    const capturedKey = key;
+    const doRender = () => {
+      if (activeComicKey === capturedKey) renderBubbles(capturedKey);
+    };
+
+    // Use requestAnimationFrame to let the browser update .complete after src change
+    requestAnimationFrame(() => {
+      if (comicImage.complete && comicImage.naturalWidth > 0) {
+        doRender();
+      } else {
+        comicImage.onload = doRender;
+      }
+    });
+  });
+
+  // ------------------------------------------------------------------
+  // Reset: restore all bubbles to their default text
+  // ------------------------------------------------------------------
+  comicResetBtn.addEventListener('click', () => {
+    const comic = COMICS[activeComicKey];
+    if (!comic) return;
+    comic.bubbles.forEach(b => {
+      const el = document.getElementById(b.id);
+      if (el) el.textContent = b.text;
+    });
+  });
+
+  // ------------------------------------------------------------------
+  // Download: draw the comic onto a canvas at full natural resolution
+  // and trigger a PNG download.
+  // ------------------------------------------------------------------
+  comicDownloadBtn.addEventListener('click', () => {
+    const comic = COMICS[activeComicKey];
+    if (!comic) return;
+
+    const canvas = document.createElement('canvas');
+    canvas.width  = comic.naturalW;
+    canvas.height = comic.naturalH;
+    const ctx = canvas.getContext('2d');
+
+    // 1. Draw the base comic image
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.src = comic.src;
+
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0, comic.naturalW, comic.naturalH);
+
+      // 2. Draw each bubble's text onto the canvas at full resolution
+      const baseFontPx = comic.naturalW * (comic.fontScale ?? 0.009); // matches CSS logic
+      ctx.fillStyle = '#111111';
+      ctx.textBaseline = 'top';
+
+      comic.bubbles.forEach(b => {
+        const el = document.getElementById(b.id);
+        if (!el) return;
+
+        const text  = el.textContent.trim();
+        const x     = (b.left   / 100) * comic.naturalW + 6;
+        const y     = (b.top    / 100) * comic.naturalH + 6;
+        const maxW  = (b.width  / 100) * comic.naturalW - 12;
+        const maxH  = (b.height / 100) * comic.naturalH - 12;
+
+        const fontSize = b.caption ? Math.round(baseFontPx * 0.9) : Math.round(baseFontPx);
+        ctx.font = `${fontSize}px WmFont, sans-serif`;
+
+        // Word-wrap helper
+        function wrapText(ctx, text, maxWidth) {
+          const words  = text.split(' ');
+          const lines  = [];
+          let   line   = '';
+          for (const word of words) {
+            const test = line ? line + ' ' + word : word;
+            if (ctx.measureText(test).width > maxWidth && line) {
+              lines.push(line);
+              line = word;
+            } else {
+              line = test;
+            }
+          }
+          if (line) lines.push(line);
+          return lines;
+        }
+
+        const lineH = fontSize * 1.35;
+        const rawLines = text.split('\n');
+        const allLines = rawLines.flatMap(l => wrapText(ctx, l, maxW));
+
+        allLines.forEach((line, i) => {
+          const lineY = y + i * lineH;
+          if (lineY + lineH > y + maxH) return; // clip to bubble height
+          ctx.fillText(line, x, lineY, maxW);
+        });
+      });
+
+      // 3. Trigger download
+      const link = document.createElement('a');
+      link.download = `wm-comic-${activeComicKey}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    };
+
+    img.onerror = () => {
+      alert('Could not load the comic image for download. Make sure the page is served from a local server.');
+    };
+  });
+
+  // Initial render
+  renderBubbles(activeComicKey);
 });
 
