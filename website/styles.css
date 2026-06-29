@@ -238,7 +238,7 @@ body,
 
 /* 4. Typography Styling */
 
-h1 {
+h1:not(.showcase-h1) {
   font-family: "WmFont", sans-serif;
   font-size: 4.2rem;
   line-height: 1.15;
@@ -370,7 +370,7 @@ button {
   color: var(--accent-orange-hover);
 }
 
-.editable-text {
+.hero-container .editable-text {
   font-family: "WmFont", sans-serif;
   font-size: 2.2rem;
   line-height: 1.4;
@@ -645,6 +645,32 @@ button {
   display: flex;
   justify-content: center;
   margin-top: 3rem;
+}
+
+.showcase {
+  width: 100%;
+  max-width: 1200px;
+  padding: 6rem 2rem 8rem 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.showcase-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 6rem 2rem 8rem 2rem;
+  border-top: 1px solid var(--border-color);
+  font-family: "WmFont", sans-serif;
+  font-size: 1.95rem;
+  line-height: 1.4;
+  outline: none;
+  min-height: 150px;
+  color: var(--text-main);
+  word-break: break-word;
+}
+.showcase-container p {
+  text-align: justify;
+  font-size: 1.4rem;
+  margin-top: 1.3rem;
 }
 
 .about-container {
