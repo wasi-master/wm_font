@@ -1,236 +1,249 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WM Font Showcase</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css"
-    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WM Font Showcase</title>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-copy@1.0.6/dist/highlightjs-copy.min.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/css.min.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="logo">WM Font</div>
-      <div class="nav-actions">
-        <a href="#download-section" class="btn-outline">Download</a>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/css.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/highlightjs-copy@1.0.6/dist/highlightjs-copy.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+  const savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+</script>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">WM Font</div>
+    <div class="nav-actions">
+      <button id="theme-toggle" class="btn-theme" aria-label="Toggle dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      <a href="#download-section" class="btn-outline">Download</a>
+    </div>
+  </nav>
+
+  <main class="hero-container">
+    <div class="hero-text">
+      <h1>Introducing the all-new <span class="highlight">WM Font</span></h1>
+      <p class="description">
+        A hand drawn typeface that is created to mimic the look and feel of handwriting.
+      </p>
+      <div class="button-group">
+        <button class="btn-primary" id="play-btn">Try the Playground</button>
+        <a href="#download-section" class="btn-outline">Get the Font</a>
       </div>
-    </nav>
+    </div>
+    <div class="hero-card" id="playground-card">
+      <div class="card-header">
+        <span class="card-label">PLAYGROUND</span>
+        <span class="card-action" id="reset-btn">Reset Text</span>
+      </div>
+      <div class="editable-text" contenteditable="true">
+        Edit the text below to take a feel of WM Font.
+      </div>
+    </div>
+  </main>
 
-    <main class="hero-container">
-      <div class="hero-text">
-        <h1>Introducing the all-new <span class="highlight">WM Font</span></h1>
-        <p class="description">
-A hand drawn typeface that is created to mimic the look and feel of handwriting.
+  <!--- Examples section -->
+  <section class="examples-container" id="examples-section">
+    <h2 class="section-title">Examples</h2>
+    <p class="section-subtitle">
+      See how WM Font works in different fields.
+    </p>
+    <div class="examples-grid">
+      <div class="example-card">
+        <h3>Paragraph Example</h3>
+        <p class="example-text paragraph-example">
+          Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet consectetur adipiscing elit quisque faucibus ex
+          sapien. Quisque faucibus ex sapien vitae pellentesque sem placerat. Vitae pellentesque sem placerat in id
+          cursus mi.
         </p>
-        <div class="button-group">
-          <button class="btn-primary" id="play-btn">Try the Playground</button>
-          <a href="#download-section" class="btn-outline">Get the Font</a>
-        </div>
       </div>
-      <div class="hero-card" id="playground-card">
-        <div class="card-header">
-          <span class="card-label">PLAYGROUND</span>
-          <span class="card-action" id="reset-btn">Reset Text</span>
-        </div>
-        <div class="editable-text" contenteditable="true">
-          Edit the text below to take a feel of WM Font.
-        </div>
+      <div class="example-card">
+        <h3>Math Example</h3>
+        <p class="example-text heading-example">
+          ∫<sub>a</sub><sup>b</sup> f(x) dx = F(b) - F(a)<br />
+          x₁,₂ = (-β ± Δ½) ÷ 2α<br />
+          y = ½x² ± ⅔x ÷ ⅕<br />
+          x³ ± y³ ≠ z³ for n ≥ 3<br />
+          ℕ ≤ ℤ ≤ ℚ ≤ ℝ ≤ ℂ <br />
+          A = {x | x = 2ⁿ, where 1 ≤ n ≤ 5}
+          ∑<sub>i=1</sub><sup>n</sup> &nbsp;i² = n(n + 1)(2n + 1) ÷ 6
+        </p>
       </div>
-    </main>
+      <div class="example-card">
+        <h3>Physics Example</h3>
+        E = ½μv²<br />
+        ρ = m ÷ V<br />
+        Ω = R₁ + R₂ + R₃<br />
+        λ = c ÷ f<br />
+        τ = σ ÷ Δ<br />
+        φ = α ± β<br />
+        η = Wₒ ÷ Wᵢ
+      </div>
+      <div class="example-card">
+        <h3>Chemistry Example</h3>
+        H₂ + O₂ → H₂O<br />
+        C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O<br />
+        2H₂ + O₂ → 2H₂O<br />
+        Δ H = Δ U + PΔ V
+      </div>
+      <div class="example-card">
+        <h3>Currency Example</h3>
+        $100.00<br />
+        €85.50<br />
+        £75.25<br />
+        ¥10,000<br />
+        ₹7,500<br />
+      </div>
+      <div class="example-card">
+        <h3>Symbols Example</h3>
+        <p class="justified">
+          © 2024 WM Font™ . <br />
+          ® A registered trademark.<br />
+          Approximately equal to.<br />
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- Use cases section -->
+  <section class="use-cases-container" id="use-cases-section">
+    <h2 class="section-title">Use Cases</h2>
+    <p class="section-subtitle">
+      See how WM Font can be used in various design scenarios.
+    </p>
+    <div class="use-cases-grid">
+      <div class="use-case-card">
+        <h3>Web Design</h3>
+        <img src="./assets/poster.png" alt="Web Design" class="use-case-image" />
+        <p>
+          Perfect for personal blogs, portfolios, and creative websites that
+          want a handwritten touch.
+        </p>
+      </div>
+      <div class="use-case-card">
+        <h3>Print Media</h3>
+        <img src="./assets/envelope.png" alt="Envelope" class="use-case-image" />
+        <p>
+          Ideal for greeting cards, posters, and flyers that require a
+          personal feel.
+        </p>
+      </div>
+      <div class="use-case-card">
+        <h3>Online Journaling</h3>
+        <img src="./assets/todo.png" alt="Journal" class="use-case-image" />
+        <p>
+          Great for anything that needs a personal, handwritten aesthetic like
+          note-taking apps, journals, and diaries.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <!--- Examples section -->
-    <section class="examples-container" id="examples-section">
-      <h2 class="section-title">Examples</h2>
-      <p class="section-subtitle">
-        See how WM Font works in different fields.
-      </p>
-      <div class="examples-grid">
-        <div class="example-card">
-          <h3>Paragraph Example</h3>
-          <p class="example-text paragraph-example">
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet consectetur adipiscing elit quisque faucibus ex sapien. Quisque faucibus ex sapien vitae pellentesque sem placerat. Vitae pellentesque sem placerat in id cursus mi.
-          </p>
-        </div>
-        <div class="example-card">
-          <h3>Math Example</h3>
-          <p class="example-text heading-example">
-            ∫<sub>a</sub><sup>b</sup> f(x) dx = F(b) - F(a)<br />
-            x₁,₂ = (-β ± Δ½) ÷ 2α<br />
-            y = ½x² ± ⅔x ÷ ⅕<br />
-            x³ ± y³ ≠ z³ for n ≥ 3<br />
-            ℕ ≤ ℤ ≤ ℚ ≤ ℝ ≤ ℂ <br />
-            A = {x | x = 2ⁿ, where 1 ≤ n ≤ 5}
-          </p>
-        </div>
-        <div class="example-card">
-          <h3>Physics Example</h3>
-          E = ½μv²<br />
-          ρ = m ÷ V<br />
-          Ω = R₁ + R₂ + R₃<br />
-          λ = c ÷ f<br />
-          τ = σ ÷ Δ<br />
-          φ = α ± β<br />
-          η = Wₒ ÷ Wᵢ
-        </div>
-        <div class="example-card">
-          <h3>Chemistry Example</h3>
-          H₂ + O₂ → H₂O<br />
-          C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O<br />
-          2H₂ + O₂ → 2H₂O<br />
-          Δ H = Δ U + PΔ V
-        </div>
-        <div class="example-card">
-          <h3>Currency Example</h3>
-          $100.00<br />
-          €85.50<br />
-          £75.25<br />
-          ¥10,000<br />
-          ₹7,500<br />
-        </div>
-        <div class="example-card">
-          <h3>Justified Text Example</h3>
-          <p class="justified">
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet consectetur adipiscing elit quisque faucibus ex sapien. Quisque faucibus ex sapien vitae pellentesque sem placerat. Vitae pellentesque sem placerat in id cursus mi.
-          </p>
-        </div>
-      </div>
-    </section>
-    <!-- Use cases section -->
-    <section class="use-cases-container" id="use-cases-section">
-      <h2 class="section-title">Use Cases</h2>
-      <p class="section-subtitle">
-        See how WM Font can be used in various design scenarios.
-      </p>
-      <div class="use-cases-grid">
-        <div class="use-case-card">
-          <h3>Web Design</h3>
-          <p>
-            Perfect for personal blogs, portfolios, and creative websites that
-            want a handwritten touch.
-          </p>
-        </div>
-        <div class="use-case-card">
-          <h3>Print Media</h3>
-          <p>
-            Ideal for greeting cards, posters, and flyers that require a
-            personal feel.
-          </p>
-        </div>
-        <div class="use-case-card">
-          <h3>Online Journaling</h3>
-          <p>
-            Great for anything that needs a personal, handwritten aesthetic like
-            note-taking apps, journals, and diaries.
-          </p>
-        </div>
-      </div>
-    </section>
+  <!-- Glyph Section -->
+  <section class="glyphs-container" id="glyphs-section">
+    <h2 class="section-title">Glyph Set</h2>
+    <p class="section-subtitle">
+      Explore all 185 characters and symbols available in WM Font.
+    </p>
 
-    <!-- Glyph Section -->
-    <section class="glyphs-container" id="glyphs-section">
-      <h2 class="section-title">Glyph Set</h2>
-      <p class="section-subtitle">
-        Explore all 185 characters and symbols available in WM Font.
-      </p>
-
-      <div class="glyphs-filter-bar">
-        <div class="search-box">
-          <svg
-            class="search-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input
-            type="text"
-            id="glyph-search"
-            placeholder="Search by character, name, or Unicode (e.g. A, alpha, U+0021)..."
-          />
-        </div>
-        <div class="category-pills" id="category-pills">
-          <button class="pill active" data-category="all">All Glyphs</button>
-          <button class="pill" data-category="uppercase">Uppercase</button>
-          <button class="pill" data-category="lowercase">Lowercase</button>
-          <button class="pill" data-category="number">Numbers</button>
-          <button class="pill" data-category="punctuation">Punctuation</button>
-          <button class="pill" data-category="currency">Currencies</button>
-          <button class="pill" data-category="math-greek">Math & Greek</button>
-          <button class="pill" data-category="fraction">Fractions</button>
-          <button class="pill" data-category="script">Sub/Superscripts</button>
-          <button class="pill" data-category="blackboard">
-            Blackboard Bold
-          </button>
-        </div>
+    <div class="glyphs-filter-bar">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="glyph-search"
+          placeholder="Search by character, name, or Unicode (e.g. A, alpha, U+0021)..." />
       </div>
-
-      <div class="glyph-grid" id="glyph-grid">
+      <div class="category-pills" id="category-pills">
+        <button class="pill active" data-category="all">All Glyphs</button>
+        <button class="pill" data-category="uppercase">Uppercase</button>
+        <button class="pill" data-category="lowercase">Lowercase</button>
+        <button class="pill" data-category="number">Numbers</button>
+        <button class="pill" data-category="punctuation">Punctuation</button>
+        <button class="pill" data-category="currency">Currencies</button>
+        <button class="pill" data-category="math-greek">Math & Greek</button>
+        <button class="pill" data-category="fraction">Fractions</button>
+        <button class="pill" data-category="script">Sub/Superscripts</button>
+        <button class="pill" data-category="blackboard">
+          Blackboard Bold
+        </button>
       </div>
+    </div>
 
-      <div
-        class="glyph-expand-container"
-        id="glyph-expand-container"
-        style="display: none"
-      >
-        <button id="glyph-expand-btn" class="btn-outline">Show More</button>
-      </div>
-    </section>
+    <div class="glyph-grid" id="glyph-grid">
+    </div>
 
-    <!-- About Section -->
-    <section class="about-container" id="about-section">
-      <h2 class="section-title">About WM Font</h2>
-      <p>
-        <b>WM Font:</b> It is a fully authentic font designed from the ground up
-        by creator Arian Mollik Wasi. The font was initially created for the
-        <a href="https://typeface.hackclub.com/" target="_blank"
-          >Typeface challenge at Hack Club</a
-        >. Wasi used the online tool
-        <a href="https://calligraphr.com/" target="_blank">Calligraphr</a> to
-        convert his handwriting into a digital font. To write the font, Wasi
-        used a Samsung Galaxy S25 Ultra with a stylus, which allowed him to
-        create precise and detailed strokes. The font contains 185 characters,
-        including uppercase and lowercase letters, numbers, punctuation marks,
-        and special symbols. Wasi personally uses special unicode characters a
-        lot and thus he has included these characters in the font as well. Wasi
-        has a personal website available at
-        <a href="https://wasi-master.github.io/" target="_blank"
-          >wasi-master.github.io</a
-        >
-        where he showcases his coding projects.<br />
-        <b>License:</b> The font is licensed under the SIL Open Font License
-        (OFL). The code for this website is licensed under the MIT License. Both
-        are open-source licenses that allow you to use, modify, and distribute
-        the font and website code freely, as long as you comply with the terms
-        of the license. The source code can be found on
-        <a href="https://github.com/wasi-master/wm_font" target="_blank"
-          >GitHub</a
-        >.
-      </p>
-    </section>
-    <section class="programming" id="programming">
-      <h2 class="section-title">Programmatic Use</h2>
-      <p>
-        You can use WM Font in your web projects by including it via CSS. Here's
-        an example of how to include the font in your CSS:
-      </p>
-      <pre>
+    <div class="glyph-expand-container" id="glyph-expand-container" style="display: none">
+      <button id="glyph-expand-btn" class="btn-outline">Show More</button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-container" id="about-section">
+    <h2 class="section-title">About WM Font</h2>
+    <p>
+      <b>WM Font:</b> It is a fully authentic font designed from the ground up
+      by creator Arian Mollik Wasi. The font was initially created for the
+      <a href="https://typeface.hackclub.com/" target="_blank">Typeface challenge at Hack Club</a>. Wasi used the online
+      tool
+      <a href="https://calligraphr.com/" target="_blank">Calligraphr</a> to
+      convert his handwriting into a digital font. To write the font, Wasi
+      used a Samsung Galaxy S25 Ultra with a stylus, which allowed him to
+      create precise and detailed strokes. The font contains 185 characters,
+      including uppercase and lowercase letters, numbers, punctuation marks,
+      and special symbols. Wasi personally uses special unicode characters a
+      lot and thus he has included these characters in the font as well. Wasi
+      has a personal website available at
+      <a href="https://wasi-master.github.io/" target="_blank">wasi-master.github.io</a>
+      where he showcases his coding projects.<br />
+      <b>License:</b> The font is licensed under the SIL Open Font License
+      (OFL). The code for this website is licensed under the MIT License. Both
+      are open-source licenses that allow you to use, modify, and distribute
+      the font and website code freely, as long as you comply with the terms
+      of the license. The source code can be found on
+      <a href="https://github.com/wasi-master/wm_font" target="_blank">GitHub</a>.
+    </p>
+  </section>
+  <section class="programming" id="programming">
+    <h2 class="section-title">Programmatic Use</h2>
+    <p>
+      You can use WM Font in your web projects by including it via CSS. Here's
+      an example of how to include the font in your CSS:
+    </p>
+    <pre>
       <code class="code-block language-css">
       @font-face {
         font-family: 'WM Font';
@@ -243,172 +256,204 @@ A hand drawn typeface that is created to mimic the look and feel of handwriting.
         font-style: normal;
       }
       </code></pre>
-      <p>After including the font, you can use it in your CSS like this:</p>
-      <pre>
+    <p>After including the font, you can use it in your CSS like this:</p>
+    <pre>
       <code class="code-block language-css">
       body {
         font-family: 'WM Font', sans-serif;
       }
       </code></pre>
-      <p>Make sure to adjust the file paths in the `src` property to point to the correct location of the font files in your project relative to your CSS file.</p>
-    </section>
-    <section class="downloads-container" id="download-section">
-      <h2 class="section-title">Available Formats</h2>
-      <p class="section-subtitle">
-        Download WM Font in the format that best fits your project.
-      </p>
-      <div class="download-grid">
-        <!-- WOFF2 -->
-        <div class="download-card">
-          <div class="card-title-group">
-            <h3>WOFF2</h3>
-            <span class="file-size">21.8 KB</span>
-          </div>
-          <a
-            href="https://github.com/wasi-master/wm_font/releases/download/v1.0.0/WmFont-Regular.woff2"
-            download
-            class="btn-download"
-          >
-            <span>Download</span>
-            <svg
-              class="download-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-          </a>
+    <p>Make sure to adjust the file paths in the `src` property to point to the correct location of the font files in
+      your project relative to your CSS file.</p>
+  </section>
+  <section class="faq-container" id="faq-section">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-subtitle">
+      Here are the answers to some of the most common questions about WM Font
+    </p>
+    <div class="faq-grid">
+      <details class="faq-item" name="faq-accordion" open>
+        <summary class="faq-question">What is WM Font?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="faq-answer">
+          <p>WM Font is a hand drawn font made by Arian Mollik Wasi. It was created for a font making contest called
+            Typeface organized by Hack CLub</p>
         </div>
-        <!-- OTF -->
-        <div class="download-card">
-          <div class="card-title-group">
-            <h3>OTF</h3>
-            <span class="file-size">138.8 KB</span>
-          </div>
-          <a
-            href="https://github.com/wasi-master/wm_font/releases/download/v1.0.0/WmFont-Regular.otf"
-            download
-            class="btn-download"
-          >
-            <span>Download</span>
-            <svg
-              class="download-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-        <!-- TTF -->
-        <div class="download-card">
-          <div class="card-title-group">
-            <h3>TTF</h3>
-            <span class="file-size">38.1 KB</span>
-          </div>
-          <a
-            href="https://github.com/wasi-master/wm_font/releases/download/v1.0.0/WmFont-Regular.ttf"
-            download
-            class="btn-download"
-          >
-            <span>Download</span>
-            <svg
-              class="download-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-        <!-- WOFF -->
-        <div class="download-card">
-          <div class="card-title-group">
-            <h3>WOFF</h3>
-            <span class="file-size">25.0 KB</span>
-          </div>
-          <a
-            href="https://github.com/wasi-master/wm_font/releases/download/v1.0.0/WmFont-Regular.woff"
-            download
-            class="btn-download"
-          >
-            <span>Download</span>
-            <svg
-              class="download-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-        <!-- SVG -->
-        <div class="download-card">
-          <div class="card-title-group">
-            <h3>SVG</h3>
-            <span class="file-size">95.8 KB</span>
-          </div>
-          <a
-            href="https://github.com/wasi-master/wm_font/releases/download/v1.0.0/WmFont-Regular.svg"
-            download
-            class="btn-download"
-          >
-            <span>Download</span>
-            <svg
-              class="download-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
+      </details>
 
-    <!-- Insert the footer block here -->
-    <footer class="footer">
-      <div class="footer-content">
-        <p>&copy; 2026 WM Font. Created by <a href="https://wasi-master.github.io/" target="_blank">Arian Mollik Wasi</a>.</p>
-        <div class="footer-links">
-          <a href="https://github.com/wasi-master/wm_font" target="_blank">GitHub</a>
-          <span class="separator">•</span>
-          <a href="https://typeface.hackclub.com/" target="_blank">Hack Club Typeface</a>
+      <details class="faq-item" name="faq-accordion">
+        <summary class="faq-question">Can I use WM Font in my project?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Since WM font is licensed under the SIL Open Font License, you can use it, modify it, and distribute it
+            for personal and commercial projects as long as you follow the terms of the license.</p>
         </div>
+      </details>
+      <details class="faq-item" name="faq-accordion">
+        <summary class="faq-question">How do I install the font to my computer?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="faq-answer">
+          <p>There are download links below, select the ttf or otf format and you should be able to install them to
+            your computer. If you are on Mac, you should double-click the font file then click "Install Font". If you
+            are on Windows, you can right-click the font file and select "Install".</p>
+        </div>
+      </details>
+      <details class="faq-item" name="faq-accordion">
+        <summary class="faq-question">How do I use the font on a website?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="faq-answer">
+          <p>There are instructions above</p>
+        </div>
+      </details>
+      <details class="faq-item" name="faq-accordion">
+        <summary class="faq-question">
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="faq-answer">
+          <p></p>
+        </div>
+      </details>
+      <details class="faq-item" name="faq-accordion">
+        <summary class="faq-question">
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="faq-answer">
+          <p></p>
+        </div>
+      </details>
+    </div>
+  </section>
+  <section class="downloads-container" id="download-section">
+    <h2 class="section-title">Available Formats</h2>
+    <p class="section-subtitle">
+      Download WM Font in the format that best fits your project.
+    </p>
+    <div class="download-grid">
+      <!-- WOFF2 -->
+      <div class="download-card">
+        <div class="card-title-group">
+          <h3>WOFF2</h3>
+          <span class="file-size">21.8 KB</span>
+        </div>
+        <a href="https://github.com/wasi-master/wm_font/releases/download/v1.0.0/WmFont-Regular.woff2" download
+          class="btn-download">
+          <span>Download</span>
+          <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </a>
       </div>
-    </footer>
+      <!-- OTF -->
+      <div class="download-card">
+        <div class="card-title-group">
+          <h3>OTF</h3>
+          <span class="file-size">138.8 KB</span>
+        </div>
+        <a href="https://github.com/wasi-master/wm_font/releases/download/v1.0.0/WmFont-Regular.otf" download
+          class="btn-download">
+          <span>Download</span>
+          <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </a>
+      </div>
+      <!-- TTF -->
+      <div class="download-card">
+        <div class="card-title-group">
+          <h3>TTF</h3>
+          <span class="file-size">38.1 KB</span>
+        </div>
+        <a href="https://github.com/wasi-master/wm_font/releases/download/v1.0.0/WmFont-Regular.ttf" download
+          class="btn-download">
+          <span>Download</span>
+          <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </a>
+      </div>
+      <!-- WOFF -->
+      <div class="download-card">
+        <div class="card-title-group">
+          <h3>WOFF</h3>
+          <span class="file-size">25.0 KB</span>
+        </div>
+        <a href="https://github.com/wasi-master/wm_font/releases/download/v1.0.0/WmFont-Regular.woff" download
+          class="btn-download">
+          <span>Download</span>
+          <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </a>
+      </div>
+      <!-- SVG -->
+      <div class="download-card">
+        <div class="card-title-group">
+          <h3>SVG</h3>
+          <span class="file-size">95.8 KB</span>
+        </div>
+        <a href="https://github.com/wasi-master/wm_font/releases/download/v1.0.0/WmFont-Regular.svg" download
+          class="btn-download">
+          <span>Download</span>
+          <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <script src="glyphs.js"></script>
-    <script src="script.js"></script>
-  </body>
+  <!-- Insert the footer block here -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2026 WM Font. Created by <a href="https://wasi-master.github.io/" target="_blank">Arian Mollik
+          Wasi</a>.</p>
+      <div class="footer-links">
+        <a href="https://github.com/wasi-master/wm_font" target="_blank">GitHub</a>
+        <span class="separator">•</span>
+        <a href="https://typeface.hackclub.com/" target="_blank">Hack Club Typeface</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="glyphs.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>

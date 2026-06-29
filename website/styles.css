@@ -2,6 +2,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -21,6 +22,21 @@ html {
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
+
+:root.dark {
+  --bg-color: #121110;
+  --text-main: #f5eedf;
+  --text-muted: #a69b8f;
+  --accent-orange: #e67a42;
+  --accent-orange-hover: #ff9359;
+  --accent-light: rgba(230, 122, 66, 0.15);
+  --card-bg: #1d1b1a;
+  --border-color: rgba(245, 238, 223, 0.08);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
 
 @font-face {
   font-family: "WmFont";
@@ -47,6 +63,100 @@ body {
   overflow-x: hidden;
 }
 
+/* Transition for dark mode toggle */
+body,
+.hero-card,
+.example-card,
+.use-case-card,
+.download-card,
+.faq-item,
+.navbar,
+.footer,
+.search-box input,
+.pill,
+.glyph-card,
+.glyphs-container {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dark Mode Styles */
+/* 3. Glyph Card Borders */
+:root.dark .glyph-card {
+  border-color: var(--border-color);
+  background-color: var(--bg-color);
+}
+
+/* 4. Highlight.js Warm Dark Theme Overrides */
+:root.dark .hljs {
+  background: #181716;
+  color: #f5eedf;
+}
+
+:root.dark .hljs-comment,
+:root.dark .hljs-quote {
+  color: #7d7268;
+}
+
+:root.dark .hljs-keyword,
+:root.dark .hljs-selector-tag,
+:root.dark .hljs-addition {
+  color: #ff9359;
+}
+
+:root.dark .hljs-string,
+:root.dark .hljs-meta .hljs-string,
+:root.dark .hljs-regexp,
+:root.dark .hljs-symbol,
+:root.dark .hljs-bullet,
+:root.dark .hljs-template-tag,
+:root.dark .hljs-template-variable {
+  color: #4cd980;
+}
+
+:root.dark .hljs-attribute,
+:root.dark .hljs-name,
+:root.dark .hljs-section,
+:root.dark .hljs-type,
+:root.dark .hljs-built_in,
+:root.dark .hljs-selector-id,
+:root.dark .hljs-selector-class {
+  color: #5dade2;
+}
+
+:root.dark .hljs-number,
+:root.dark .hljs-literal,
+:root.dark .hljs-variable,
+:root.dark .hljs-link {
+  color: #f39c12;
+}
+
+:root.dark .hljs-title,
+:root.dark .hljs-params,
+:root.dark .hljs-tag {
+  color: #f5eedf;
+}
+
+/* 5. Reduce brightness of images */
+:root.dark .use-case-image {
+  filter: brightness(0.85) contrast(1.05);
+}
+
+/* Dark mode overrides for hljs copy button */
+:root.dark .hljs-copy-button {
+  color: var(--text-main);
+  border-color: var(--border-color);
+  background-color: var(--card-bg);
+}
+
+/* Dark mode overrides for outline hover and download buttons */
+:root.dark .btn-outline:hover {
+  background-color: rgba(245, 238, 223, 0.04);
+}
+
+:root.dark .btn-download {
+  background-color: rgba(245, 238, 223, 0.06);
+}
+
 /* 2. Navigation Styling */
 .navbar {
   width: 100%;
@@ -54,6 +164,11 @@ body {
   padding: 2rem 2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.nav-actions {
+  display: flex;
   align-items: center;
 }
 
@@ -81,6 +196,46 @@ body {
   align-items: flex-start;
 }
 
+/* Theme toggle */
+.btn-theme {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.btn-theme:hover {
+  background-color: var(--accent-light);
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+}
+
+.btn-theme svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Toggle displays depending on theme class */
+.sun-icon {
+  display: none;
+}
+.moon-icon {
+  display: block;
+}
+
+:root.dark .sun-icon {
+  display: block;
+}
+:root.dark .moon-icon {
+  display: none;
+}
+
 /* 4. Typography Styling */
 
 h1 {
@@ -96,6 +251,7 @@ a {
   text-decoration: none;
   transition: color 0.3s ease;
 }
+
 a:hover {
   color: var(--accent-orange-hover);
 }
@@ -126,7 +282,7 @@ a:hover {
 button,
 .card-action {
   font-family: "Outfit", sans-serif;
- transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-primary,
@@ -152,7 +308,7 @@ button {
 
 .btn-primary:hover {
   background-color: var(--accent-orange-hover);
- box-shadow: 0 6px 20px rgba(204, 102, 51, 0.4);
+  box-shadow: 0 6px 20px rgba(204, 102, 51, 0.4);
 }
 
 .btn-outline {
@@ -241,7 +397,7 @@ button {
   width: 100%;
   max-width: 1200px;
   margin-top: 2rem;
-  background-color: #ffffff;
+  background-color: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 24px;
   padding: 4rem 2.5rem 3rem 2.5rem;
@@ -377,13 +533,24 @@ button {
   font-size: 1.5rem;
 }
 
+.use-case-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.use-case-card p {
+  margin-top: auto;
+}
+
 .justified {
   text-align: justify;
 }
 
 /* Card Styling */
 .glyph-card {
-  background-color: var(--bg-color); /* Light cream/beige background */
+  background-color: var(--bg-color);
+  /* Light cream/beige background */
   border: 1px solid rgba(26, 26, 26, 0.06);
   border-radius: 12px;
   padding: 1.2rem 0.5rem;
@@ -409,7 +576,8 @@ button {
 .glyph-unicode {
   font-family: monospace;
   font-size: 0.65rem;
-  color: rgba(26, 26, 26, 0.4);
+  color: var(--text-muted);
+  opacity: 0.7;
   letter-spacing: 0.5px;
 }
 
@@ -485,13 +653,15 @@ button {
   padding: 6rem 2rem 8rem 2rem;
   border-top: 1px solid var(--border-color);
 }
+
 .about-container p,
 .programming p {
   text-align: justify;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   max-width: 1000px;
   margin: 0 auto;
 }
+
 .programming pre {
   font-size: 1.2rem;
 }
@@ -501,20 +671,24 @@ button {
   display: block;
   overflow-x: auto;
   padding: 1.5em;
-  background: #FFFDF9; /* Warm Off-White */
-  color: #1F1E1D;      /* Deep Charcoal */
+  background: #FFFDF9;
+  /* Warm Off-White */
+  color: #1F1E1D;
+  /* Deep Charcoal */
 }
 
 .hljs-comment,
 .hljs-quote {
-  color: #8E847C;      /* Muted Warm Grey */
+  color: #8E847C;
+  /* Muted Warm Grey */
   font-style: italic;
 }
 
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-addition {
-  color: #D35400;      /* Terracotta Accent */
+  color: #D35400;
+  /* Terracotta Accent */
   font-weight: 500;
 }
 
@@ -525,7 +699,8 @@ button {
 .hljs-bullet,
 .hljs-template-tag,
 .hljs-template-variable {
-  color: #2ECC71;      /* Grass Green */
+  color: #2ECC71;
+  /* Grass Green */
 }
 
 .hljs-attribute,
@@ -535,14 +710,16 @@ button {
 .hljs-built_in,
 .hljs-selector-id,
 .hljs-selector-class {
-  color: #3498DB;      /* Soft Blue */
+  color: #3498DB;
+  /* Soft Blue */
 }
 
 .hljs-number,
 .hljs-literal,
 .hljs-variable,
 .hljs-link {
-  color: #E67E22;      /* Warm Amber */
+  color: #E67E22;
+  /* Warm Amber */
 }
 
 .hljs-title,
@@ -599,4 +776,97 @@ button {
 
 .separator {
   color: var(--border-color);
+}
+
+/*
+* ==========================================================================
+   8. FAQ Accordion Section Styling
+   ========================================================================== */
+.faq-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 2rem;
+  padding: 6rem 2rem 2rem 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.faq-grid {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item:hover,
+.faq-item[open] {
+  border-color: var(--accent-orange);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-question {
+  list-style: none;
+  /* Hide default browser disclosure triangle */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text-main);
+}
+
+/* Hide disclosure triangle in WebKit/Blink browsers */
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--text-muted);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.faq-item[open] .faq-icon {
+  transform: rotate(180deg);
+  color: var(--accent-orange);
+}
+
+.faq-answer {
+  padding: 0 1.5rem 1.25rem 1.5rem;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+/* Subtle micro-animation for expanding content */
+.faq-item[open] .faq-answer {
+  animation: faqFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes faqFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

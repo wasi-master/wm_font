@@ -143,5 +143,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // Load grid initially
     renderGlyphs();
   }
+  // Theme Toggle Functionality
+  const themeToggle = document.getElementById("theme-toggle");
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  }
+  hljs.addPlugin(new CopyButtonPlugin());
   hljs.highlightAll();
 });
