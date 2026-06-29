@@ -201,6 +201,103 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // ==========================================================================
+  // Custom Playground Section Functionality
+  // ==========================================================================
+  const pgEditable = document.getElementById("pg-editable");
+  const pgResetBtn = document.getElementById("pg-reset-btn");
+  const pgSize = document.getElementById("pg-size");
+  const pgSizeVal = document.getElementById("pg-size-val");
+  const pgHeight = document.getElementById("pg-height");
+  const pgHeightVal = document.getElementById("pg-height-val");
+  const pgSpacing = document.getElementById("pg-spacing");
+  const pgSpacingVal = document.getElementById("pg-spacing-val");
+  const pgSample = document.getElementById("pg-sample");
+  const pgAlignBtns = document.querySelectorAll(".btn-align");
+
+  const pgDefaults = {
+    text: "The quick brown fox jumps over the lazy dog.",
+    size: "36",
+    height: "1.4",
+    spacing: "0",
+    align: "left"
+  };
+
+  const sampleTexts = {
+    default: "The quick brown fox jumps over the lazy dog.",
+    alphabet: "ABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz\n0123456789",
+    math: "∫_a^b f(x) dx = F(b) - F(a)\nx₁,₂ = (-β ± Δ½) ÷ 2α\ny = ½x² ± ⅔x ÷ ⅕\nx³ ± y³ ≠ z³ for n ≥ 3\nℕ ≤ ℤ ≤ ℚ ≤ ℝ ≤ ℂ",
+    chemistry: "2H₂ + O₂ → 2H₂O\nC₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O\nE = ½μv²\nρ = m ÷ V\nΩ = R₁ + R₂ + R₃"
+  };
+
+  if (pgEditable) {
+    // Font Size Slider
+    if (pgSize && pgSizeVal) {
+      pgSize.addEventListener("input", (e) => {
+        const val = e.target.value;
+        pgEditable.style.fontSize = `${val}px`;
+        pgSizeVal.textContent = `${val}px`;
+      });
+    }
+
+    // Line Height Slider
+    if (pgHeight && pgHeightVal) {
+      pgHeight.addEventListener("input", (e) => {
+        const val = e.target.value;
+        pgEditable.style.lineHeight = val;
+        pgHeightVal.textContent = val;
+      });
+    }
+
+    // Letter Spacing Slider
+    if (pgSpacing && pgSpacingVal) {
+      pgSpacing.addEventListener("input", (e) => {
+        const val = e.target.value;
+        pgEditable.style.letterSpacing = `${val}px`;
+        pgSpacingVal.textContent = `${val}px`;
+      });
+    }
+
+    // Sample Text Dropdown
+    if (pgSample) {
+      pgSample.addEventListener("change", (e) => {
+        const key = e.target.value;
+        pgEditable.innerText = sampleTexts[key] || pgDefaults.text;
+      });
+    }
+
+    // Text Alignment Buttons
+    pgAlignBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        pgAlignBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const align = btn.dataset.align;
+        pgEditable.style.textAlign = align;
+      });
+    });
+
+    // Reset Button
+    if (pgResetBtn) {
+      pgResetBtn.addEventListener("click", () => {
+        pgEditable.innerText = pgDefaults.text;
+        pgEditable.style.fontSize = `${pgDefaults.size}px`;
+        pgEditable.style.lineHeight = pgDefaults.height;
+        pgEditable.style.letterSpacing = `${pgDefaults.spacing}px`;
+        pgEditable.style.textAlign = pgDefaults.align;
+
+        if (pgSize) { pgSize.value = pgDefaults.size; pgSizeVal.textContent = `${pgDefaults.size}px`; }
+        if (pgHeight) { pgHeight.value = pgDefaults.height; pgHeightVal.textContent = pgDefaults.height; }
+        if (pgSpacing) { pgSpacing.value = pgDefaults.spacing; pgSpacingVal.textContent = `${pgDefaults.spacing}px`; }
+        if (pgSample) { pgSample.value = "default"; }
+
+        pgAlignBtns.forEach(b => {
+          if (b.dataset.align === pgDefaults.align) b.classList.add("active");
+          else b.classList.remove("active");
+        });
+      });
+    }
+  }
+
   hljs.addPlugin(new CopyButtonPlugin());
   hljs.highlightAll();
 });

@@ -1012,3 +1012,162 @@ button {
   transform: scale(1.02);
   box-shadow: var(--shadow-md);
 }
+
+/* ==========================================================================
+   9. Playground Section Styling
+   ========================================================================== */
+.playground-section {
+  width: 100%;
+  max-width: 1200px;
+  padding: 6rem 2rem 2rem 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.playground-container {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2.5rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .playground-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.playground-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.control-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.control-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.control-label-row span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-orange);
+}
+
+.control-select {
+  padding: 0.8rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.control-select:focus {
+  border-color: var(--accent-orange);
+}
+
+.control-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border-color);
+  outline: none;
+}
+
+.control-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-orange);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.control-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.align-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-align {
+  flex: 1;
+  padding: 0.6rem;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-align:hover {
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+}
+
+.btn-align.active {
+  background-color: var(--accent-orange);
+  color: #ffffff;
+  border-color: var(--accent-orange);
+}
+
+.pg-reset-btn {
+  margin-top: 1rem;
+  width: 100%;
+  font-size: 0.95rem;
+  padding: 0.8rem;
+}
+
+.playground-editor-card {
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background-color: var(--bg-color);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 350px;
+}
+
+.playground-editable {
+  font-family: "WmFont", sans-serif;
+  color: var(--text-main);
+  outline: none;
+  word-break: break-word;
+  white-space: pre-wrap;
+  height: 100%;
+  overflow-y: auto;
+  line-height: 1.4;
+  font-size: 36px;
+}

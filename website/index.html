@@ -170,6 +170,67 @@
     </div>
   </section>
 
+  <!-- Playground Section -->
+  <section class="playground-section" id="playground">
+    <h2 class="section-title">Interactive Playground</h2>
+    <p class="section-subtitle">Experiment with font sizes, line heights, alignments, and letter spacing.</p>
+    
+    <div class="playground-container">
+      <!-- Sidebar Controls -->
+      <div class="playground-controls">
+        <div class="control-group">
+          <label for="pg-sample">Sample Text</label>
+          <select id="pg-sample" class="control-select">
+            <option value="default">Default Text</option>
+            <option value="alphabet">Alphabet (A-Z, a-z)</option>
+            <option value="math">Mathematics & Greek</option>
+            <option value="chemistry">Chemistry & Physics</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label-row">
+            <label for="pg-size">Font Size</label>
+            <span id="pg-size-val">36px</span>
+          </div>
+          <input type="range" id="pg-size" min="16" max="96" value="36" class="control-slider">
+        </div>
+
+        <div class="control-group">
+          <div class="control-label-row">
+            <label for="pg-height">Line Height</label>
+            <span id="pg-height-val">1.4</span>
+          </div>
+          <input type="range" id="pg-height" min="1.0" max="2.5" step="0.1" value="1.4" class="control-slider">
+        </div>
+
+        <div class="control-group">
+          <div class="control-label-row">
+            <label for="pg-spacing">Letter Spacing</label>
+            <span id="pg-spacing-val">0px</span>
+          </div>
+          <input type="range" id="pg-spacing" min="-4" max="15" value="0" class="control-slider">
+        </div>
+
+        <div class="control-group">
+          <label>Alignment</label>
+          <div class="align-buttons">
+            <button class="btn-align active" data-align="left" aria-label="Align left">Left</button>
+            <button class="btn-align" data-align="center" aria-label="Align center">Center</button>
+            <button class="btn-align" data-align="right" aria-label="Align right">Right</button>
+          </div>
+        </div>
+
+        <button id="pg-reset-btn" class="btn-outline pg-reset-btn">Reset Playground</button>
+      </div>
+
+      <!-- Playground Text Area -->
+      <div class="playground-editor-card">
+        <div class="playground-editable" contenteditable="true" id="pg-editable">The quick brown fox jumps over the lazy dog.</div>
+      </div>
+    </div>
+  </section>
+
   <!-- Glyph Section -->
   <section class="glyphs-container" id="glyphs-section">
     <h2 class="section-title">Glyph Set</h2>
@@ -394,14 +455,14 @@
         </div>
       </details>
       <details class="faq-item" name="faq-accordion">
-        <summary class="faq-question">
+        <summary class="faq-question">Can I sell items (like t-shirts or mugs) that feature this font?
           <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         </summary>
         <div class="faq-answer">
-          <p></p>
+          <p>Yes, you can sell items that feature this font. I'd love to see what you create.</p>
         </div>
       </details>
     </div>
