@@ -162,6 +162,11 @@ document.addEventListener("DOMContentLoaded", () => {
     themeToggle.addEventListener("click", () => {
       const isDark = document.documentElement.classList.toggle("dark");
       localStorage.setItem("theme", isDark ? "dark" : "light");
+      
+      // If playground background is set to default, update it to match theme change
+      if (typeof currentBg !== "undefined" && currentBg === "default") {
+        updatePlaygroundBg("default");
+      }
     });
   }
   // Image Viewer Modal Functionality
@@ -214,6 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================================================
+  // ==========================================================================
   // Custom Playground Section Functionality
   // ==========================================================================
   const pgEditable = document.getElementById("pg-editable");
@@ -242,7 +248,106 @@ document.addEventListener("DOMContentLoaded", () => {
     chemistry: "2H₂ + O₂ → 2H₂O\nC₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O\nE = ½μv²\nρ = m ÷ V\nΩ = R₁ + R₂ + R₃"
   };
 
+  let currentBg = "default";
+  let activeTextColorIndex = 0;
+
+  const colorPalettes = {
+    light: [
+      { name: "Charcoal", hex: "#1e293b" },
+      { name: "Rust", hex: "#c2410c" },
+      { name: "Ocean", hex: "#1d4ed8" },
+      { name: "Forest", hex: "#15803d" },
+      { name: "Purple", hex: "#6d28d9" },
+      { name: "Crimson", hex: "#be123c" }
+    ],
+    dark: [
+      { name: "Cream", hex: "#f8fafc" },
+      { name: "Peach", hex: "#fdba74" },
+      { name: "Sky", hex: "#93c5fd" },
+      { name: "Mint", hex: "#86efac" },
+      { name: "Lavender", hex: "#c084fc" },
+      { name: "Rose", hex: "#fda4af" }
+    ]
+  };
+
+  const isDarkBg = (bg) => {
+    if (bg === "default") {
+      return document.documentElement.classList.contains("dark");
+    }
+    return bg === "dark" || bg === "blueprint";
+  };
+
+  const refreshColorSelector = () => {
+    const isDark = isDarkBg(currentBg);
+    const activePalette = isDark ? colorPalettes.dark : colorPalettes.light;
+    const colorPickerContainer = document.getElementById("pg-color-picker");
+
+    if (colorPickerContainer) {
+      colorPickerContainer.innerHTML = activePalette.map((color, index) => {
+        const isActive = index === activeTextColorIndex;
+        return `
+          <button 
+            class="color-swatch ${isActive ? 'active' : ''}" 
+            style="background-color: ${color.hex};" 
+            data-index="${index}" 
+            title="${color.name}"
+            aria-label="Set text color to ${color.name}">
+          </button>
+        `;
+      }).join("");
+    }
+
+    if (pgEditable) {
+      pgEditable.style.color = activePalette[activeTextColorIndex].hex;
+    }
+  };
+
+  const updatePlaygroundBg = (bg) => {
+    currentBg = bg;
+    const editorCard = document.querySelector(".playground-editor-card");
+    if (editorCard) {
+      editorCard.classList.remove("pg-bg-white", "pg-bg-notebook", "pg-bg-kraft", "pg-bg-blueprint", "pg-bg-dark");
+      if (bg !== "default") {
+        editorCard.classList.add(`pg-bg-${bg}`);
+      }
+    }
+    refreshColorSelector();
+  };
+
   if (pgEditable) {
+    updatePlaygroundBg("default");
+
+    const bgPickerContainer = document.getElementById("pg-bg-picker");
+    if (bgPickerContainer) {
+      bgPickerContainer.addEventListener("click", (e) => {
+        const swatch = e.target.closest(".bg-swatch");
+        if (!swatch) return;
+
+        bgPickerContainer.querySelectorAll(".bg-swatch").forEach(btn => btn.classList.remove("active"));
+        swatch.classList.add("active");
+
+        updatePlaygroundBg(swatch.dataset.bg);
+      });
+    }
+
+    const colorPickerContainer = document.getElementById("pg-color-picker");
+    if (colorPickerContainer) {
+      colorPickerContainer.addEventListener("click", (e) => {
+        const swatch = e.target.closest(".color-swatch");
+        if (!swatch) return;
+
+        const index = parseInt(swatch.dataset.index, 10);
+        activeTextColorIndex = index;
+
+        colorPickerContainer.querySelectorAll(".color-swatch").forEach(btn => btn.classList.remove("active"));
+        swatch.classList.add("active");
+
+        const isDark = isDarkBg(currentBg);
+        const activePalette = isDark ? colorPalettes.dark : colorPalettes.light;
+        pgEditable.style.color = activePalette[index].hex;
+      });
+    }
+
     // Font Size Slider
     if (pgSize && pgSizeVal) {
       pgSize.addEventListener("input", (e) => {
@@ -306,6 +411,17 @@ document.addEventListener("DOMContentLoaded", () => {
           if (b.dataset.align === pgDefaults.align) b.classList.add("active");
           else b.classList.remove("active");
         });
+
+        // Reset bg & color state
+        activeTextColorIndex = 0;
+        const bgPickerContainer = document.getElementById("pg-bg-picker");
+        if (bgPickerContainer) {
+          bgPickerContainer.querySelectorAll(".bg-swatch").forEach(btn => {
+            if (btn.dataset.bg === "default") btn.classList.add("active");
+            else btn.classList.remove("active");
+          });
+        }
+        updatePlaygroundBg("default");
       });
     }
   }

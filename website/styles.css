@@ -1298,6 +1298,89 @@ button {
   padding: 0.8rem;
 }
 
+.color-picker-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0.2rem 0;
+}
+
+.color-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-color);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 0;
+  outline: none;
+  position: relative;
+}
+
+.color-swatch:hover {
+  transform: scale(1.15);
+}
+
+.color-swatch.active {
+  box-shadow: 0 0 0 2px var(--card-bg), 0 0 0 4px var(--accent-orange);
+}
+
+.bg-picker-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.bg-swatch {
+  height: 36px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border-color);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+  position: relative;
+  padding: 0;
+}
+
+.bg-swatch:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-orange);
+}
+
+.bg-swatch.active {
+  border-color: var(--accent-orange);
+  box-shadow: 0 0 0 2px var(--card-bg), 0 0 0 4px var(--accent-orange);
+}
+
+/* Previews for bg-swatches */
+.bg-swatch[data-bg="default"] {
+  background: linear-gradient(135deg, #ffffff 50%, #1e1b1a 50%);
+}
+.bg-swatch[data-bg="white"] {
+  background: #ffffff;
+}
+.bg-swatch[data-bg="notebook"] {
+  background-color: #faf8f5;
+  background-image: 
+    linear-gradient(90deg, transparent 20%, #fca5a5 20%, #fca5a5 22%, transparent 22%),
+    linear-gradient(rgba(147, 197, 253, 0.4) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 8px;
+}
+.bg-swatch[data-bg="kraft"] {
+  background-color: #e6cbab;
+  background-image: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.01) 0px, rgba(0, 0, 0, 0.01) 1px, transparent 1px, transparent 3px);
+}
+.bg-swatch[data-bg="blueprint"] {
+  background-color: #1e3a8a;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+.bg-swatch[data-bg="dark"] {
+  background-color: #1e1b1a;
+}
+
 .playground-editor-card {
   border: 1px solid var(--border-color);
   border-radius: 16px;
@@ -1306,6 +1389,45 @@ button {
   display: flex;
   flex-direction: column;
   min-height: 350px;
+  transition: background-color 0.3s ease, padding 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Background Specific Card Overrides */
+.playground-editor-card.pg-bg-white {
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
+.playground-editor-card.pg-bg-notebook {
+  background-color: #fdfbf7 !important;
+  background-image:
+    /* Red margins */
+    linear-gradient(90deg, transparent 79px, #fca5a5 79px, #fca5a5 80px, transparent 80px, transparent 83px, #fca5a5 83px, #fca5a5 84px, transparent 84px),
+    /* Blue lines */
+    linear-gradient(rgba(147, 197, 253, 0.4) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 100% 32px !important;
+  background-position: 0 0, 0 12px !important;
+  padding-left: 96px !important;
+}
+
+.playground-editor-card.pg-bg-kraft {
+  background-color: #dfc299 !important;
+  background-image: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.01) 0px, rgba(0, 0, 0, 0.01) 1px, transparent 1px, transparent 4px) !important;
+  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.05) !important;
+}
+
+.playground-editor-card.pg-bg-blueprint {
+  background-color: #0b3c5d !important;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px) !important;
+  background-size: 20px 20px !important;
+}
+
+.playground-editor-card.pg-bg-dark {
+  background-color: #18181b !important;
+  background-image: none !important;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2) !important;
 }
 
 .playground-editable {
