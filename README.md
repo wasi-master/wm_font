@@ -1,2 +1,13 @@
-# wm_font
-A handwriting based font made by me
+# Wm Font
+A handwriting based font made by me.
+## How I made it
+I used the online tool [Caligraphr](https://calligraphr.com/) along with my Samsung Galaxy S25 Ultra and its S-Pen to create the designs. The free tier of Caligraphr only supports 75 fonts in a set. So I made multiple fonts and merged them via [FontForge](https://fontforge.org/en-US/)
+## The Story
+Initially I did around 140 glyphs and then started looking for ways to merge them. I found a python script but that didn't seem to work. I found a website and that also didn't seem to work. Finally I came across FontForge which is a brilliant piece of software to merge fonts together (among other things) that I used. After merging my first font I noticed that I forgot to pick few characters in caligraphr. So I generated another drawing sheet and drew another set of characters, while picking this sheet I thought why not add greek letters too that can be used in formulas and stuff? So I did. then I merged the new font and then I saw a few fractions missing, so I wanted to add them too, and I found the blackboard bold fonts that I'm a big fan of. So I wanted to add them too. So I did. Then I merged all the fonts together. The drawing sheets can be found in `assets/`
+## Design sheets
+
+Here are the caligraphr sheets used for designing the font.
+
+| Sheet 1 | Sheet 2 | Sheet 3 | Sheet 4 | Sheet 5 | Sheet 6 |
+|---|---|---|---|---|---|
+| ![Drawing sheet 1](https://raw.githubusercontent.com/wasi-master/wm_font/refs/heads/main/assets/drawing_sheet_1.png)<br><br>**Drawing sheet 1**<br>Contains the first part of the initial letters and symbols in the first batch | ![Drawing sheet 2](https://raw.githubusercontent.com/wasi-master/wm_font/refs/heads/main/assets/drawing_sheet_2.png)<br><br>**Drawing sheet 2**<br>Contains the second part of the initial letters and symbols in the first batch | ![Drawing sheet 3](https://raw.githubusercontent.com/wasi-master/wm_font/refs/heads/main/assets/drawing_sheet_3.png)<br><br>**Drawing sheet 3**<br>Contains the first part of the next batch consisting of extra symbols | ![Drawing sheet 4](https://raw.githubusercontent.com/wasi-master/wm_font/refs/heads/main/assets/drawing_sheet_4.png)<br><br>**Drawing sheet 4**<br>Contains the second part of the next batch consisting of extra symbols | ![Drawing sheet 5](https://raw.githubusercontent.com/wasi-master/wm_font/refs/heads/main/assets/drawing_sheet_5.png)<br><br>**Drawing sheet 5**<br>Contains an extra batch containing missed symbols and greek letters | ![Drawing sheet 6](https://raw.githubusercontent.com/wasi-master/wm_font/refs/heads/main/assets/drawing_sheet_6.png)<br><br>**Drawing sheet 6**<br>The final batch containing blackboard bold characters and missed fractional characters |
