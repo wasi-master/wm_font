@@ -179,7 +179,7 @@ section[id] {
 
 .navbar-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1500px;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -451,7 +451,7 @@ button {
 }
 
 .btn-outline:hover {
-  border-color: var(--text-main);
+  border-color: var(--accent-orange);
   background-color: rgba(26, 26, 26, 0.02);
 }
 
@@ -861,6 +861,71 @@ button {
   height: auto;
   border-radius: 12px;
   margin-bottom: 1rem;
+}
+
+.timelapse {
+  width: 100%;
+  max-width: 1200px;
+  padding: 6rem 2rem 8rem 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.timelapse-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.timelapse-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.timelapse-button{
+  margin-top: 2rem;
+}
+.timelapse-button svg{
+  margin: 0.25rem;
+}
+
+.timelapse-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.stat-item {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 1.25rem 0.75rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-value {
+  display: block;
+  color: var(--accent-orange);
+  margin-bottom: 0.35rem;
+  font-family: "WmFont", sans-serif;
+  font-size: 2.2rem;
+  line-height: 0.9;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.timelapse-embed {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .programming pre {
@@ -1612,6 +1677,13 @@ button {
     font-size: 0.55rem !important;
   }
   
+  .timelapse-container {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.25rem;
+    min-height: auto;
+    gap: 2rem;
+    text-align: center;
+  }
   /* Programmatic usage pre code sizing */
   .programming pre {
     font-size: 0.9rem !important;
