@@ -30,25 +30,50 @@
 
 <body>
   <nav class="navbar">
-    <div class="logo">WM Font</div>
-    <div class="nav-actions">
-      <button id="theme-toggle" class="btn-theme" aria-label="Toggle dark mode">
-        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
+    <div class="navbar-container">
+      <a href="#" class="logo">WM Font</a>
+      
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </button>
-      <a href="#download-section" class="btn-outline">Download</a>
+
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="#" class="nav-link active">Home</a></li>
+          <li><a href="#examples-section" class="nav-link">Examples</a></li>
+          <li><a href="#use-cases-section" class="nav-link">Uses</a></li>
+          <li><a href="#playground" class="nav-link">Playground</a></li>
+          <li><a href="#glyphs-section" class="nav-link">Glyphs</a></li>
+          <li><a href="#showcase" class="nav-link">Showcase</a></li>
+          <li><a href="#about-section" class="nav-link">About</a></li>
+          <li><a href="#drawing-sheets" class="nav-link">Design</a></li>
+          <li><a href="#programming" class="nav-link">Code</a></li>
+          <li><a href="#faq-section" class="nav-link">FAQ</a></li>
+          <li><a href="#download-section" class="nav-link">Download</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="btn-theme" aria-label="Toggle dark mode">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <a href="#download-section" class="btn-outline">Download</a>
+      </div>
     </div>
   </nav>
 
@@ -140,7 +165,7 @@
   <section class="use-cases-container" id="use-cases-section">
     <h2 class="section-title">Use Cases</h2>
     <p class="section-subtitle">
-      See how WM Font can be used in various design scenarios.
+      See how WM Font can be used in various design scenarios. Click an image to enlarge.
     </p>
     <div class="use-cases-grid">
       <div class="use-case-card">
@@ -152,7 +177,7 @@
         </p>
       </div>
       <div class="use-case-card">
-        <h3>Print Media</h3>
+        <h3>Printed Media</h3>
         <img src="./assets/envelope.png" alt="Envelope" class="use-case-image" />
         <p>
           Ideal for greeting cards, posters, and flyers that require a
@@ -160,11 +185,32 @@
         </p>
       </div>
       <div class="use-case-card">
-        <h3>Online Journaling</h3>
+        <h3>Journaling</h3>
         <img src="./assets/todo.png" alt="Journal" class="use-case-image" />
         <p>
           Great for anything that needs a personal, handwritten aesthetic like
           note-taking apps, journals, and diaries.
+        </p>
+      </div>
+      <div class="use-case-card">
+        <h3>Comic Books</h3>
+        <img src="./assets/comics.png" alt="Comic" class="use-case-image" />
+        <p>
+          Also great for handwritten style text inside comics
+        </p>
+      </div>
+      <div class="use-case-card">
+        <h3>Letters</h3>
+        <img src="./assets/letter.png" alt="letter" class="use-case-image" />
+        <p>
+          When you need to add handwritten feel to a letter
+        </p>
+      </div>
+      <div class="use-case-card">
+        <h3>Graphic Design</h3>
+        <img src="./assets/ui.png" alt="Graphic Design" class="use-case-image" />
+        <p>
+          For those times where you want to design something with a handwritten feel.
         </p>
       </div>
     </div>
@@ -394,7 +440,7 @@
       Here are the answers to some of the most common questions about WM Font
     </p>
     <div class="faq-grid">
-      <details class="faq-item" name="faq-accordion" open>
+      <details class="faq-item" name="faq-accordion">
         <summary class="faq-question">What is WM Font?
           <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -476,7 +522,7 @@
       <!-- WOFF2 -->
       <div class="download-card">
         <div class="card-title-group">
-          <h3>WOFF2</h3>
+          <h3>.WOFF2</h3>
           <span class="file-size">21.8 KB</span>
         </div>
         <a href="https://github.com/wasi-master/wm_font/releases/download/v1.0.0/WmFont-Regular.woff2" download
@@ -493,7 +539,7 @@
       <!-- OTF -->
       <div class="download-card">
         <div class="card-title-group">
-          <h3>OTF</h3>
+          <h3>.OTF</h3>
           <span class="file-size">138.8 KB</span>
         </div>
         <a href="https://github.com/wasi-master/wm_font/releases/download/v1.0.0/WmFont-Regular.otf" download
@@ -510,7 +556,7 @@
       <!-- TTF -->
       <div class="download-card">
         <div class="card-title-group">
-          <h3>TTF</h3>
+          <h3>.TTF</h3>
           <span class="file-size">38.1 KB</span>
         </div>
         <a href="https://github.com/wasi-master/wm_font/releases/download/v1.0.0/WmFont-Regular.ttf" download
@@ -527,7 +573,7 @@
       <!-- WOFF -->
       <div class="download-card">
         <div class="card-title-group">
-          <h3>WOFF</h3>
+          <h3>.WOFF</h3>
           <span class="file-size">25.0 KB</span>
         </div>
         <a href="https://github.com/wasi-master/wm_font/releases/download/v1.0.0/WmFont-Regular.woff" download
@@ -544,7 +590,7 @@
       <!-- SVG -->
       <div class="download-card">
         <div class="card-title-group">
-          <h3>SVG</h3>
+          <h3>.SVG</h3>
           <span class="file-size">95.8 KB</span>
         </div>
         <a href="https://github.com/wasi-master/wm_font/releases/download/v1.0.0/WmFont-Regular.svg" download
@@ -561,7 +607,7 @@
       <!-- ZIP -->
       <div class="download-card">
         <div class="card-title-group">
-          <h3>ZIP</h3>
+          <h3>.ZIP</h3>
           <span class="file-size">179.0 KB</span>
         </div>
         <a href="https://github.com/wasi-master/wm_font/releases/download/v1.0.0/WmFont.zip" download

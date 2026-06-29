@@ -302,6 +302,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  const navToggle = document.getElementById("nav-toggle");
+  const navMenu = document.getElementById("nav-menu");
+  const navLinksList = document.querySelectorAll(".nav-link");
+
+  if (navToggle && navMenu) {
+    navToggle.addEventListener("click", () => {
+      navToggle.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    });
+
+    // Close mobile menu and highlight active tab on click
+    navLinksList.forEach(link => {
+      link.addEventListener("click", () => {
+        navToggle.classList.remove("active");
+        navMenu.classList.remove("active");
+
+        navLinksList.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+      });
+    });
+  }
+
   hljs.addPlugin(new CopyButtonPlugin());
   hljs.highlightAll();
 });
+
