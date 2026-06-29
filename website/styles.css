@@ -693,13 +693,24 @@ button {
   justify-content: center;
   gap: 0.4rem;
   user-select: none;
-  box-shadow: none;
+  transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.glyph-card:hover {
+  color: var(--accent-orange);
+  transform: scale(1.05);
+}
+
+.glyph-card.copied {
+  background-color: var(--accent-light);
+  border-color: var(--accent-orange);
+  transform: scale(0.95);
 }
 
 .glyph-char {
   font-family: "WmFont", sans-serif;
   font-size: 2.2rem;
-  color: var(--text-main);
   line-height: 1;
   height: 2.4rem;
   display: flex;
@@ -712,6 +723,10 @@ button {
   color: var(--text-muted);
   opacity: 0.7;
   letter-spacing: 0.5px;
+}
+
+.glyph-card:hover .glyph-unicode {
+  color: var(--accent-orange);
 }
 
 /* Downloads Section */
@@ -1303,4 +1318,35 @@ button {
   overflow-y: auto;
   line-height: 1.4;
   font-size: 36px;
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease, background 0.15s ease;
+  z-index: 90;
+  box-shadow: var(--shadow-sm);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  z-index: 100;
+}
+
+.back-to-top:hover {
+  background: var(--accent-light);
+  color: var(--accent-orange);
 }

@@ -144,6 +144,14 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    glyphGrid.addEventListener("click", (e) => {
+      const card = e.target.closest(".glyph-card");
+      if (!card) return;
+      navigator.clipboard.writeText(card.querySelector(".glyph-char").textContent);
+      card.classList.add("copied");
+      setTimeout(() => card.classList.remove("copied"), 300);
+    });
+
     // Load grid initially
     renderGlyphs();
   }
@@ -321,6 +329,17 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinksList.forEach(l => l.classList.remove("active"));
         link.classList.add("active");
       });
+    });
+  }
+
+  const backToTop = document.getElementById("back-to-top");
+  if (backToTop) {
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("visible", window.scrollY > 400);
+    }, { passive: true });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 
