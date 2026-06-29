@@ -152,6 +152,55 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("theme", isDark ? "dark" : "light");
     });
   }
+  // Image Viewer Modal Functionality
+  const imageModal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-img");
+  const modalClose = imageModal ? imageModal.querySelector(".modal-close") : null;
+
+  if (imageModal && modalImg) {
+    // Open modal on image click
+    document.querySelectorAll(".use-case-image, .drawing-sheet-image").forEach((img) => {
+      img.style.cursor = "pointer";
+      img.addEventListener("click", () => {
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        imageModal.showModal();
+        document.body.style.overflow = "hidden"; // Prevent background scroll
+      });
+    });
+
+    const handleClose = () => {
+      imageModal.close();
+    };
+
+    imageModal.addEventListener("close", () => {
+      document.body.style.overflow = ""; // Restore background scroll
+      modalImg.src = "";
+      modalImg.alt = "";
+    });
+
+    if (modalClose) {
+      modalClose.addEventListener("click", handleClose);
+    }
+
+    // Fallback light-dismiss for browsers without closedby support
+    if (!('closedBy' in HTMLDialogElement.prototype)) {
+      imageModal.addEventListener("click", (event) => {
+        if (event.target !== imageModal) return;
+        const rect = imageModal.getBoundingClientRect();
+        const isDialogContent = (
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width
+        );
+        if (!isDialogContent) {
+          handleClose();
+        }
+      });
+    }
+  }
+
   hljs.addPlugin(new CopyButtonPlugin());
   hljs.highlightAll();
 });

@@ -662,6 +662,31 @@ button {
   margin: 0 auto;
 }
 
+.drawing-sheets {
+  width: 100%;
+  max-width: 1200px;
+  padding: 6rem 2rem 8rem 2rem;
+  border-top: 1px solid var(--border-color);
+}
+.drawing-sheet-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  justify-items: center;
+}
+.drawing-sheet-card {
+  background-color: var(--card-bg);
+  padding: 2.2rem;
+  border-radius: 24px;
+  border: 1px solid var(--border-color);
+}
+.drawing-sheet-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
 .programming pre {
   font-size: 1.2rem;
 }
@@ -869,4 +894,95 @@ button {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ==========================================================================
+   Image Modal Dialog Styles
+   ========================================================================== */
+.image-modal {
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 90vw;
+  max-height: 90vh;
+  outline: none;
+  overflow: visible;
+  margin: auto;
+}
+
+.image-modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+}
+
+.modal-wrapper {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-modal img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: block;
+}
+
+.image-modal .modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 1.5rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 1;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+  padding: 0;
+}
+
+.image-modal .modal-close:hover {
+  background-color: var(--accent-orange);
+  border-color: var(--accent-orange);
+  transform: scale(1.05);
+}
+
+/* Animations for dialog open */
+.image-modal[open] {
+  animation: modalScaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes modalScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hover effects for interactive images */
+.use-case-image,
+.drawing-sheet-image {
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.use-case-image:hover,
+.drawing-sheet-image:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-md);
 }
