@@ -821,7 +821,8 @@ button {
   margin-top: 1.3rem;
 }
 
-.about-container {
+.about-container,
+.programming {
   width: 100%;
   max-width: 1200px;
   padding: 6rem 2rem 8rem 2rem;
@@ -863,6 +864,9 @@ button {
 
 .programming pre {
   font-size: 1.2rem;
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
 }
 
 /* WM Font Warm Light hljs theme */
@@ -935,11 +939,6 @@ button {
   font-weight: bold;
 }
 
-@media (max-width: 480px) {
-  .glyph-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 /* Footer Styling */
 .footer {
@@ -1349,4 +1348,155 @@ button {
 .back-to-top:hover {
   background: var(--accent-light);
   color: var(--accent-orange);
+}
+
+/* ==========================================================================
+   10. Mobile Responsiveness Styles
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Hero section adjustments */
+  .hero-container {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.25rem;
+    min-height: auto;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .hero-text {
+    align-items: center;
+  }
+
+  .hero-card,
+  #playground-card {
+    display: none !important;
+  }
+
+  h1:not(.showcase-h1) {
+    font-size: 2.8rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Grid Layouts to 2 columns and smaller gaps */
+  .examples-grid,
+  .use-cases-grid,
+  .download-grid,
+  .drawing-sheet-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  /* Reduce card sizes (padding and border-radius) */
+  .example-card,
+  .use-case-card,
+  .download-card,
+  .drawing-sheet-card {
+    padding: 1.25rem 1rem !important;
+    border-radius: 16px !important;
+    gap: 1rem !important;
+  }
+
+  /* Specific typography sizing for cards */
+  .example-card,
+  .use-case-card {
+    font-size: 1.15rem !important;
+  }
+
+  .use-case-card h3,
+  .download-card h3,
+  .drawing-sheet-card h3 {
+    font-size: 1.1rem !important;
+  }
+
+  .use-case-card p,
+  .drawing-sheet-card p {
+    font-size: 0.85rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .file-size {
+    font-size: 0.75rem !important;
+  }
+
+  .btn-download {
+    padding: 0.6rem !important;
+    font-size: 0.85rem !important;
+    border-radius: 10px !important;
+    gap: 0.4rem !important;
+  }
+
+  /* Section padding and margins */
+  .examples-container,
+  .use-cases-container,
+  .downloads-container,
+  .drawing-sheets,
+  .programming,
+  .about-container,
+  .faq-container,
+  .showcase {
+    padding: 3rem 1.25rem !important;
+  }
+
+  .showcase-container {
+    padding: 3rem 1.25rem !important;
+    font-size: 1.3rem !important;
+  }
+
+  .showcase-container p {
+    font-size: 1rem !important;
+  }
+
+  .showcase-container h1 { font-size: 2rem !important; }
+  .showcase-container h2 { font-size: 1.6rem !important; }
+  .showcase-container h3 { font-size: 1.4rem !important; }
+  .showcase-container h4 { font-size: 1.2rem !important; }
+
+  .section-title {
+    font-size: 2.2rem !important;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  /* Glyphs container and grid on mobile */
+  .glyphs-container {
+    padding: 2rem 1.25rem !important;
+    border-radius: 16px !important;
+  }
+
+  .glyph-grid {
+    grid-template-columns: repeat(6, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+
+  .glyph-card {
+    padding: 0.8rem 0.3rem !important;
+  }
+
+  .glyph-char {
+    font-size: 1.8rem !important;
+    height: 2rem !important;
+  }
+
+  .glyph-unicode {
+    font-size: 0.55rem !important;
+  }
+  
+  /* Programmatic usage pre code sizing */
+  .programming pre {
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .glyph-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
 }

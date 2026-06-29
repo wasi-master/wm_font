@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentCategory = "all";
   let isExpanded = false;
-  const LIMIT = 72; // Initial number of glyphs to show
+  const LIMIT = window.innerWidth <= 768 ? 16 : 72; // Initial number of glyphs to show
 
   if (
     glyphGrid &&
