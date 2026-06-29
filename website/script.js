@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const resetBtn = document.getElementById("reset-btn");
   const editableText = document.querySelector(".editable-text");
-  const defaultText = "Edit this text to see the font in action!";
+  const defaultText = "Edit the text below to take a feel of WM Font.";
 
   const playBtn = document.getElementById("play-btn");
   const playgroundCard = document.getElementById("playground-card");
@@ -19,19 +19,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (playBtn && editableText && playgroundCard) {
+  if (playBtn) {
     playBtn.addEventListener("click", () => {
-      playgroundCard.scrollIntoView({ behavior: "smooth", block: "center" });
-      setTimeout(() => {
-        editableText.focus();
-        // Place cursor at the end of the text
-        const range = document.createRange();
-        const sel = window.getSelection();
-        range.selectNodeContents(editableText);
-        range.collapse(false);
-        sel.removeAllRanges();
-        sel.addRange(range);
-      }, 500); // Wait for smooth scroll to finalize
+      const pgSection = document.getElementById("playground");
+      const pgEdit = document.getElementById("pg-editable");
+      if (pgSection && pgEdit) {
+        pgSection.scrollIntoView({ behavior: "smooth", block: "center" });
+        setTimeout(() => {
+          pgEdit.focus();
+          // Place cursor at the end of the text
+          const range = document.createRange();
+          const sel = window.getSelection();
+          range.selectNodeContents(pgEdit);
+          range.collapse(false);
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }, 500); // Wait for smooth scroll to finalize
+      }
     });
   }
   // ==========================================================================
