@@ -1,0 +1,20 @@
+name: Feature request
+description: Suggest an improvement.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Describe your idea
+
+  - type: textarea
+    id: benefit
+    attributes:
+      label: Why would this improve WM Font?
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered

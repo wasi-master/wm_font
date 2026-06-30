@@ -1,0 +1,36 @@
+name: Font bug
+description: Report a bug with the font.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+
+  - type: input
+    id: version
+    attributes:
+      label: Font version
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+
+  - type: input
+    id: application
+    attributes:
+      label: Application
+      placeholder: Photoshop, VS Code, Word...
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots

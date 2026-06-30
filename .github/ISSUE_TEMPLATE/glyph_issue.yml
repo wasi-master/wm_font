@@ -1,0 +1,44 @@
+name: Glyph issue
+description: Report a missing, incorrect, or broken glyph.
+title: "[Glyph]: "
+labels:
+  - glyph
+body:
+  - type: input
+    id: character
+    attributes:
+      label: Character
+      description: Which character or symbol is affected?
+      placeholder: "e.g. €, →, A"
+
+  - type: input
+    id: unicode
+    attributes:
+      label: Unicode (optional)
+      placeholder: "U+20AC"
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected appearance
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual appearance
+
+  - type: dropdown
+    id: weight
+    attributes:
+      label: Font style
+      options:
+        - Regular
+        - Medium
+        - SemiBold
+        - Bold
+        - Other
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
