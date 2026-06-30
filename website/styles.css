@@ -38,6 +38,10 @@ html {
   color-scheme: dark;
 }
 
+::selection {
+    background-color: var(--accent-orange);
+    color: var(--text-main);
+}
 
 @font-face {
   font-family: "WmFont";
@@ -1445,7 +1449,7 @@ button {
 }
 .bg-swatch[data-bg="notebook"] {
   background-color: #faf8f5;
-  background-image: 
+  background-image:
     linear-gradient(90deg, transparent 20%, #fca5a5 20%, #fca5a5 22%, transparent 22%),
     linear-gradient(rgba(147, 197, 253, 0.4) 1px, transparent 1px);
   background-size: 100% 100%, 100% 8px;
@@ -1456,7 +1460,7 @@ button {
 }
 .bg-swatch[data-bg="blueprint"] {
   background-color: #1e3a8a;
-  background-image: 
+  background-image:
     linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
   background-size: 8px 8px;
@@ -1694,7 +1698,7 @@ button {
   .glyph-unicode {
     font-size: 0.55rem !important;
   }
-  
+
   .timelapse-container {
     grid-template-columns: 1fr;
     min-height: auto;
