@@ -171,16 +171,33 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   // Image Viewer Modal Functionality
   const imageModal = document.getElementById("image-modal");
+  const modalPicture = document.getElementById("modal-picture");
+  const modalPictureAvif = document.getElementById("modal-picture-avif");
+  const modalPictureWebp = document.getElementById("modal-picture-webp");
   const modalImg = document.getElementById("modal-img");
   const modalClose = imageModal ? imageModal.querySelector(".modal-close") : null;
 
   if (imageModal && modalImg) {
+    const setModalImageFromPicture = (picture) => {
+      const sourceAvif = picture.querySelector('source[type="image/avif"]');
+      const sourceWebp = picture.querySelector('source[type="image/webp"]');
+      const image = picture.querySelector("img");
+
+      if (modalPictureAvif) {
+        modalPictureAvif.srcset = sourceAvif ? sourceAvif.srcset : "";
+      }
+      if (modalPictureWebp) {
+        modalPictureWebp.srcset = sourceWebp ? sourceWebp.srcset : "";
+      }
+      modalImg.src = image ? (image.currentSrc || image.src) : "";
+      modalImg.alt = image ? image.alt : "";
+    };
+
     // Open modal on image click
-    document.querySelectorAll(".use-case-image, .drawing-sheet-image").forEach((img) => {
-      img.style.cursor = "pointer";
-      img.addEventListener("click", () => {
-        modalImg.src = img.src;
-        modalImg.alt = img.alt;
+    document.querySelectorAll(".use-case-image, .drawing-sheet-image").forEach((picture) => {
+      picture.style.cursor = "pointer";
+      picture.addEventListener("click", () => {
+        setModalImageFromPicture(picture);
         imageModal.showModal();
         document.body.style.overflow = "hidden"; // Prevent background scroll
       });
@@ -194,6 +211,8 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.style.overflow = ""; // Restore background scroll
       modalImg.src = "";
       modalImg.alt = "";
+      if (modalPictureAvif) modalPictureAvif.srcset = "";
+      if (modalPictureWebp) modalPictureWebp.srcset = "";
     });
 
     if (modalClose) {
@@ -467,6 +486,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================================================
   const comicSelector   = document.getElementById('comic-selector');
   const comicFrame      = document.getElementById('comic-editor-frame');
+  const comicImageAvif  = document.getElementById('comic-image-avif');
+  const comicImageWebp  = document.getElementById('comic-image-webp');
   const comicImage      = document.getElementById('comic-image');
   const comicResetBtn   = document.getElementById('comic-reset-btn');
   const comicDownloadBtn = document.getElementById('comic-download-btn');
@@ -486,6 +507,8 @@ document.addEventListener("DOMContentLoaded", () => {
  const COMICS = {
   1: {
     src: './assets/comic_strip_1.png',
+    avif: './assets/comic_strip_1.avif',
+    webp: './assets/comic_strip_1.webp',
     alt: 'Comic Strip 1: Planning the Camping Trip',
     naturalW: 2000, naturalH: 1600,
     fontScale: 0.011,
@@ -534,6 +557,8 @@ document.addEventListener("DOMContentLoaded", () => {
   },
   2: {
     src: './assets/comic_strip_2.png',
+    avif: './assets/comic_strip_2.avif',
+    webp: './assets/comic_strip_2.webp',
     alt: 'Comic Strip 2: Adventurous Elephant',
     naturalW: 2000, naturalH: 1600,
     fontScale: 0.013,
@@ -568,6 +593,8 @@ document.addEventListener("DOMContentLoaded", () => {
   },
   3: {
     src: './assets/comic_strip_3.png',
+    avif: './assets/comic_strip_3.avif',
+    webp: './assets/comic_strip_3.webp',
     alt: 'Comic Strip 3: Morning Rush',
     naturalW: 1200, naturalH: 927,
     fontScale: 0.02,
@@ -597,6 +624,14 @@ document.addEventListener("DOMContentLoaded", () => {
 };
 
   let activeComicKey = 2;
+
+  function setComicImage(comic) {
+    if (!comic) return;
+    if (comicImageAvif) comicImageAvif.srcset = comic.avif || "";
+    if (comicImageWebp) comicImageWebp.srcset = comic.webp || "";
+    comicImage.src = comic.src;
+    comicImage.alt = comic.alt;
+  }
 
   // ------------------------------------------------------------------
   // Render: inject bubble divs for the given comic key
@@ -677,11 +712,10 @@ document.addEventListener("DOMContentLoaded", () => {
     activeComicKey = key;
     const comic = COMICS[key];
 
+    setComicImage(comic);
+
     // Cancel any pending onload from a previous switch
     comicImage.onload = null;
-
-    comicImage.src = comic.src;
-    comicImage.alt = comic.alt;
 
     // Guard: only render if this key is still the active one when the image loads
     const capturedKey = key;
@@ -794,4 +828,3 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial render
   renderBubbles(activeComicKey);
 });
-

@@ -172,7 +172,11 @@
     <div class="use-cases-grid">
       <div class="use-case-card">
         <h3>Web Design</h3>
-        <img src="./assets/website.png" alt="Web Design" class="use-case-image" />
+        <picture class="use-case-image">
+          <source type="image/avif" srcset="./assets/website.avif" />
+          <source type="image/webp" srcset="./assets/website.webp" />
+          <img src="./assets/website.png" alt="Web Design" loading="lazy" />
+        </picture>
         <p>
           Perfect for personal blogs, portfolios, and creative websites that
           want a handwritten touch.
@@ -180,7 +184,11 @@
       </div>
       <div class="use-case-card">
         <h3>Printed Media</h3>
-        <img src="./assets/envelope.png" alt="Envelope" class="use-case-image" />
+        <picture class="use-case-image">
+          <source type="image/avif" srcset="./assets/envelope.avif" />
+          <source type="image/webp" srcset="./assets/envelope.webp" />
+          <img src="./assets/envelope.png" alt="Envelope" loading="lazy" />
+        </picture>
         <p>
           Ideal for greeting cards, posters, and flyers that require a
           personal feel.
@@ -188,7 +196,11 @@
       </div>
       <div class="use-case-card">
         <h3>Journaling</h3>
-        <img src="./assets/todo.png" alt="Journal" class="use-case-image" />
+        <picture class="use-case-image">
+          <source type="image/avif" srcset="./assets/todo.avif" />
+          <source type="image/webp" srcset="./assets/todo.webp" />
+          <img src="./assets/todo.png" alt="Journal" loading="lazy" />
+        </picture>
         <p>
           Great for anything that needs a personal, handwritten aesthetic like
           note-taking apps, journals, and diaries.
@@ -196,21 +208,33 @@
       </div>
       <div class="use-case-card">
         <h3>Comic Books</h3>
-        <img src="./assets/comics.png" alt="Comic" class="use-case-image" />
+        <picture class="use-case-image">
+          <source type="image/avif" srcset="./assets/comics.avif" />
+          <source type="image/webp" srcset="./assets/comics.webp" />
+          <img src="./assets/comics.png" alt="Comic" loading="lazy" />
+        </picture>
         <p>
           Also great for handwritten style text inside comics
         </p>
       </div>
       <div class="use-case-card">
         <h3>Letters</h3>
-        <img src="./assets/letter.png" alt="letter" class="use-case-image" />
+        <picture class="use-case-image">
+          <source type="image/avif" srcset="./assets/letter.avif" />
+          <source type="image/webp" srcset="./assets/letter.webp" />
+          <img src="./assets/letter.png" alt="letter" loading="lazy" />
+        </picture>
         <p>
           When you need to add handwritten feel to a letter
         </p>
       </div>
       <div class="use-case-card">
         <h3>Graphic Design</h3>
-        <img src="./assets/ui.png" alt="Graphic Design" class="use-case-image" />
+        <picture class="use-case-image">
+          <source type="image/avif" srcset="./assets/ui.avif" />
+          <source type="image/webp" srcset="./assets/ui.webp" />
+          <img src="./assets/ui.png" alt="Graphic Design" loading="lazy" />
+        </picture>
         <p>
           For those times where you want to design something with a handwritten feel.
         </p>
@@ -314,7 +338,11 @@
       <!-- Comic Editor Frame: background image + absolutely positioned text bubbles -->
       <div class="comic-editor-wrapper">
         <div class="comic-editor-frame" id="comic-editor-frame">
-          <img id="comic-image" class="comic-image" src="./assets/comic_strip_2.png" alt="Comic Strip 2: Adventurous Elephant" />
+          <picture class="comic-image-picture">
+            <source id="comic-image-avif" type="image/avif" srcset="./assets/comic_strip_2.avif" />
+            <source id="comic-image-webp" type="image/webp" srcset="./assets/comic_strip_2.webp" />
+            <img id="comic-image" class="comic-image" src="./assets/comic_strip_2.png" alt="Comic Strip 2: Adventurous Elephant" />
+          </picture>
           <!-- Speech bubble overlays are injected here by script.js -->
         </div>
       </div>
@@ -434,38 +462,56 @@
       </p>
       <div class="drawing-sheet-grid">
         <div class="drawing-sheet-card">
-          <img src="https://raw.githubusercontent.com/wasi-master/wm_font/refs/heads/main/assets/drawing_sheet_1.png"
-            alt="Drawing Sheet 1" class="drawing-sheet-image" />
+          <picture class="drawing-sheet-image">
+            <source type="image/avif" srcset="./assets/drawing_sheet_1.avif" />
+            <source type="image/webp" srcset="./assets/drawing_sheet_1.webp" />
+            <img src="./assets/drawing_sheet_1.png" alt="Drawing Sheet 1" loading="lazy" />
+          </picture>
           <h3> Drawing sheet 1</h3>
           <p>Contains the first part of the initial letters and symbols in the first batch</p>
         </div>
         <div class="drawing-sheet-card">
-          <img src="https://raw.githubusercontent.com/wasi-master/wm_font/refs/heads/main/assets/drawing_sheet_2.png"
-            alt="Drawing Sheet 1" class="drawing-sheet-image" />
+          <picture class="drawing-sheet-image">
+            <source type="image/avif" srcset="./assets/drawing_sheet_2.avif" />
+            <source type="image/webp" srcset="./assets/drawing_sheet_2.webp" />
+            <img src="./assets/drawing_sheet_2.png" alt="Drawing Sheet 2" loading="lazy" />
+          </picture>
           <h3> Drawing sheet 2</h3>
           <p>Contains the second part of the initial letters and symbols in the first batch</p>
         </div>
         <div class="drawing-sheet-card">
-          <img src="https://raw.githubusercontent.com/wasi-master/wm_font/refs/heads/main/assets/drawing_sheet_3.png"
-            alt="Drawing Sheet 1" class="drawing-sheet-image" />
+          <picture class="drawing-sheet-image">
+            <source type="image/avif" srcset="./assets/drawing_sheet_3.avif" />
+            <source type="image/webp" srcset="./assets/drawing_sheet_3.webp" />
+            <img src="./assets/drawing_sheet_3.png" alt="Drawing Sheet 3" loading="lazy" />
+          </picture>
           <h3> Drawing sheet 3</h3>
           <p>Contains the first part of the next batch consisting of extra symbols</p>
         </div>
         <div class="drawing-sheet-card">
-          <img src="https://raw.githubusercontent.com/wasi-master/wm_font/refs/heads/main/assets/drawing_sheet_4.png"
-            alt="Drawing Sheet 1" class="drawing-sheet-image" />
+          <picture class="drawing-sheet-image">
+            <source type="image/avif" srcset="./assets/drawing_sheet_4.avif" />
+            <source type="image/webp" srcset="./assets/drawing_sheet_4.webp" />
+            <img src="./assets/drawing_sheet_4.png" alt="Drawing Sheet 4" loading="lazy" />
+          </picture>
           <h3> Drawing sheet 4</h3>
           <p>Contains the second part of the next batch consisting of extra symbols</p>
         </div>
         <div class="drawing-sheet-card">
-          <img src="https://raw.githubusercontent.com/wasi-master/wm_font/refs/heads/main/assets/drawing_sheet_5.png"
-            alt="Drawing Sheet 1" class="drawing-sheet-image" />
+          <picture class="drawing-sheet-image">
+            <source type="image/avif" srcset="./assets/drawing_sheet_5.avif" />
+            <source type="image/webp" srcset="./assets/drawing_sheet_5.webp" />
+            <img src="./assets/drawing_sheet_5.png" alt="Drawing Sheet 5" loading="lazy" />
+          </picture>
           <h3> Drawing sheet5</h3>
           <p>Contains an extra batch containing missed symbols and greek letters</p>
         </div>
         <div class="drawing-sheet-card">
-          <img src="https://raw.githubusercontent.com/wasi-master/wm_font/refs/heads/main/assets/drawing_sheet_6.png"
-            alt="Drawing Sheet 1" class="drawing-sheet-image" />
+          <picture class="drawing-sheet-image">
+            <source type="image/avif" srcset="./assets/drawing_sheet_6.avif" />
+            <source type="image/webp" srcset="./assets/drawing_sheet_6.webp" />
+            <img src="./assets/drawing_sheet_6.png" alt="Drawing Sheet 6" loading="lazy" />
+          </picture>
           <h3> Drawing sheet 6</h3>
           <p>The final batch containing blackboard bold characters and missed fractional characters</p>
         </div>
@@ -763,7 +809,11 @@ body {
   <dialog id="image-modal" class="image-modal" aria-label="Image viewer" closedby="any">
     <div class="modal-wrapper">
       <button class="modal-close" aria-label="Close dialog">&times;</button>
-      <img id="modal-img" src="" alt="" />
+      <picture id="modal-picture" class="modal-picture">
+        <source id="modal-picture-avif" type="image/avif" srcset="" />
+        <source id="modal-picture-webp" type="image/webp" srcset="" />
+        <img id="modal-img" src="" alt="" />
+      </picture>
     </div>
   </dialog>
 

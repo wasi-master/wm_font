@@ -667,10 +667,20 @@ button {
 }
 
 .use-case-image {
+  display: block;
   width: 100%;
-  height: auto;
   border-radius: 12px;
   margin: auto 0;
+  overflow: hidden;
+}
+
+.use-case-image > img,
+.drawing-sheet-image > img,
+.comic-image-picture > img,
+.modal-picture > img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .use-case-card p {
@@ -860,10 +870,11 @@ button {
   border: 1px solid var(--border-color);
 }
 .drawing-sheet-image {
+  display: block;
   width: 100%;
-  height: auto;
   border-radius: 12px;
   margin-bottom: 1rem;
+  overflow: hidden;
 }
 
 .timelapse {
@@ -1172,6 +1183,10 @@ button {
   object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: block;
+}
+
+.image-modal picture {
   display: block;
 }
 
@@ -1750,6 +1765,11 @@ button {
   height: auto;
   display: block;
   border-radius: 19px;
+}
+
+.comic-image-picture {
+  display: block;
+  width: 100%;
 }
 
 /* Speech bubble overlay: an absolutely positioned contenteditable div */
