@@ -42,11 +42,11 @@ html {
 @font-face {
   font-family: "WmFont";
   src:
+  url(./font/WmFont-Regular.woff2) format("woff2"),
+  url(./font/WmFont-Regular.woff) format("woff"),
     url(./font/WmFont-Regular.ttf) format("truetype"),
-    url(./font/WmFont-Regular.woff) format("woff"),
-    url(./font/WmFont-Regular.woff2) format("woff2"),
-    url(./font/WmFont-Regular.otf) format("opentype"),
-    url(./font/WmFont-Regular.svg) format("svg");
+    url(./font/WmFont-Regular.svg) format("svg"),
+    url(./font/WmFont-Regular.otf) format("opentype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -1549,7 +1549,6 @@ button {
   .hero-container {
     grid-template-columns: 1fr;
     padding: 3rem 1.25rem;
-    min-height: auto;
     gap: 2rem;
     text-align: center;
   }
