@@ -1,0 +1,59 @@
+name: Missing glyph
+description: Request support for a missing character or symbol.
+title: "[Missing Glyph]: "
+labels:
+  - glyph
+  - enhancement
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve WM Font! Please provide as much detail as possible.
+
+  - type: input
+    id: character
+    attributes:
+      label: Character or symbol
+      description: The character(s) that are missing.
+      placeholder: "₹"
+
+    validations:
+      required: true
+
+  - type: input
+    id: unicode
+    attributes:
+      label: Unicode code point (optional)
+      description: If known.
+      placeholder: "U+20B9"
+
+  - type: input
+    id: language
+    attributes:
+      label: Language or script (optional)
+      placeholder: "English, Greek, IPA, Mathematical Symbols"
+
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Why is this glyph needed?
+      description: Describe your use case or why this character would be useful.
+      placeholder: |
+        I need this symbol for...
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: Reference images or resources (optional)
+      description: Links or images showing the desired glyph design.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have confirmed this glyph is not already included in the latest version of WM Font.
+          required: true

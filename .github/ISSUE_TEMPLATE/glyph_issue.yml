@@ -1,5 +1,5 @@
 name: Glyph issue
-description: Report a missing, incorrect, or broken glyph.
+description: An existing glyph is incorrect (shape, spacing, kerning, metrics, hinting, etc.).
 title: "[Glyph]: "
 labels:
   - glyph
