@@ -1626,7 +1626,8 @@ button {
   .programming,
   .about-container,
   .faq-container,
-  .showcase {
+  .showcase,
+  .timelapse {
     padding: 3rem 1.25rem !important;
   }
 
@@ -1679,7 +1680,6 @@ button {
   
   .timelapse-container {
     grid-template-columns: 1fr;
-    padding: 3rem 1.25rem;
     min-height: auto;
     gap: 2rem;
     text-align: center;
