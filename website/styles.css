@@ -2,7 +2,6 @@
 html {
   scroll-behavior: smooth;
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -39,15 +38,15 @@ html {
 }
 
 ::selection {
-    background-color: var(--accent-orange);
-    color: var(--text-main);
+  background-color: var(--accent-orange);
+  color: var(--text-main);
 }
 
 @font-face {
   font-family: "WmFont";
   src:
-  url(./font/WmFont-Regular.woff2) format("woff2"),
-  url(./font/WmFont-Regular.woff) format("woff"),
+    url(./font/WmFont-Regular.woff2) format("woff2"),
+    url(./font/WmFont-Regular.woff) format("woff"),
     url(./font/WmFont-Regular.ttf) format("truetype"),
     url(./font/WmFont-Regular.svg) format("svg"),
     url(./font/WmFont-Regular.otf) format("opentype");
@@ -68,7 +67,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Transition for dark mode toggle */
+/* Transition for dark mode */
 body,
 .hero-card,
 .example-card,
@@ -83,17 +82,19 @@ body,
 .pill,
 .glyph-card,
 .glyphs-container {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 /* Dark Mode Styles */
-/* 3. Glyph Card Borders */
 :root.dark .glyph-card {
   border-color: var(--border-color);
   background-color: var(--bg-color);
 }
 
-/* 4. Highlight.js Warm Dark Theme Overrides */
 :root.dark .hljs {
   background: #181716;
   color: #f5eedf;
@@ -148,14 +149,12 @@ body,
   filter: brightness(0.85) contrast(1.05);
 }
 
-/* Dark mode overrides for hljs copy button */
 :root.dark .hljs-copy-button {
   color: var(--text-main);
   border-color: var(--border-color);
   background-color: var(--card-bg);
 }
 
-/* Dark mode overrides for outline hover and download buttons */
 :root.dark .btn-outline:hover {
   background-color: rgba(245, 238, 223, 0.04);
 }
@@ -257,7 +256,9 @@ section[id] {
   height: 2px;
   background-color: var(--text-main);
   border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 @media (max-width: 1024px) {
@@ -315,7 +316,6 @@ section[id] {
   }
 }
 
-
 .hero-container {
   width: 100%;
   max-width: 1200px;
@@ -358,7 +358,7 @@ section[id] {
   height: 20px;
 }
 
-/* Toggle displays depending on theme class */
+/* Toggle which icon to show to user depending on theme class */
 .sun-icon {
   display: none;
 }
@@ -464,7 +464,7 @@ button {
   font-size: 0.9rem;
 }
 
-/* 6. The Interactive Card */
+/* 6. The Right Side Interactive Card */
 .hero-card {
   background-color: var(--card-bg);
   padding: 2.5rem;
@@ -550,7 +550,6 @@ button {
   padding: 4rem 2rem 4rem 2rem;
 }
 
-/* Filter Controls */
 .glyphs-filter-bar {
   display: flex;
   flex-direction: column;
@@ -695,10 +694,8 @@ button {
   text-align: justify;
 }
 
-/* Card Styling */
 .glyph-card {
   background-color: var(--bg-color);
-  /* Light cream/beige background */
   border: 1px solid rgba(26, 26, 26, 0.06);
   border-radius: 12px;
   padding: 1.2rem 0.5rem;
@@ -708,7 +705,11 @@ button {
   justify-content: center;
   gap: 0.4rem;
   user-select: none;
-  transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
   cursor: pointer;
 }
 
@@ -850,7 +851,7 @@ button {
   font-size: 1.1rem;
 }
 
-.programming h2{
+.programming h2 {
   margin-bottom: 2rem;
 }
 
@@ -901,10 +902,10 @@ button {
   font-size: 1.15rem;
 }
 
-.timelapse-button{
+.timelapse-button {
   margin-top: 2rem;
 }
-.timelapse-button svg{
+.timelapse-button svg {
   margin: 0.25rem;
 }
 
@@ -953,29 +954,24 @@ button {
   border-radius: 12px;
 }
 
-/* WM Font Warm Light hljs theme */
 .hljs {
   display: block;
   overflow-x: auto;
   padding: 1.5em;
-  background: #FFFDF9;
-  /* Warm Off-White */
-  color: #1F1E1D;
-  /* Deep Charcoal */
+  background: #fffdf9;
+  color: #1f1e1d;
 }
 
 .hljs-comment,
 .hljs-quote {
-  color: #8E847C;
-  /* Muted Warm Grey */
+  color: #8e847c;
   font-style: italic;
 }
 
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-addition {
-  color: #D35400;
-  /* Terracotta Accent */
+  color: #d35400;
   font-weight: 500;
 }
 
@@ -986,8 +982,7 @@ button {
 .hljs-bullet,
 .hljs-template-tag,
 .hljs-template-variable {
-  color: #2ECC71;
-  /* Grass Green */
+  color: #2ecc71;
 }
 
 .hljs-attribute,
@@ -997,22 +992,20 @@ button {
 .hljs-built_in,
 .hljs-selector-id,
 .hljs-selector-class {
-  color: #3498DB;
-  /* Soft Blue */
+  color: #3498db;
 }
 
 .hljs-number,
 .hljs-literal,
 .hljs-variable,
 .hljs-link {
-  color: #E67E22;
-  /* Warm Amber */
+  color: #e67e22;
 }
 
 .hljs-title,
 .hljs-params,
 .hljs-tag {
-  color: #1F1E1D;
+  color: #1f1e1d;
 }
 
 .hljs-emphasis {
@@ -1022,7 +1015,6 @@ button {
 .hljs-strong {
   font-weight: bold;
 }
-
 
 /* Footer Styling */
 .footer {
@@ -1085,7 +1077,9 @@ button {
   border: 1px solid var(--border-color);
   border-radius: 16px;
   overflow: hidden;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .faq-item:hover,
@@ -1096,7 +1090,6 @@ button {
 
 .faq-question {
   list-style: none;
-  /* Hide default browser disclosure triangle */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1108,7 +1101,6 @@ button {
   color: var(--text-main);
 }
 
-/* Hide disclosure triangle in WebKit/Blink browsers */
 .faq-question::-webkit-details-marker {
   display: none;
 }
@@ -1117,7 +1109,9 @@ button {
   width: 20px;
   height: 20px;
   color: var(--text-muted);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.3s ease;
 }
 
 .faq-item[open] .faq-icon {
@@ -1136,7 +1130,6 @@ button {
   margin: 0;
 }
 
-/* Subtle micro-animation for expanding content */
 .faq-item[open] .faq-answer {
   animation: faqFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -1170,7 +1163,9 @@ button {
 .image-modal::backdrop {
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(8px);
-  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+  transition:
+    backdrop-filter 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .modal-wrapper {
@@ -1209,7 +1204,10 @@ button {
   justify-content: center;
   cursor: pointer;
   line-height: 1;
-  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
   padding: 0;
 }
 
@@ -1219,7 +1217,6 @@ button {
   transform: scale(1.05);
 }
 
-/* Animations for dialog open */
 .image-modal[open] {
   animation: modalScaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
@@ -1234,12 +1231,13 @@ button {
     transform: scale(1);
   }
 }
-
-/* Hover effects for interactive images */
 .use-case-image,
 .drawing-sheet-image {
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, filter 0.3s ease;
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
 }
 
 .use-case-image:hover,
@@ -1398,7 +1396,9 @@ button {
   border-radius: 50%;
   border: 1.5px solid var(--border-color);
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
   padding: 0;
   outline: none;
   position: relative;
@@ -1409,7 +1409,9 @@ button {
 }
 
 .color-swatch.active {
-  box-shadow: 0 0 0 2px var(--card-bg), 0 0 0 4px var(--accent-orange);
+  box-shadow:
+    0 0 0 2px var(--card-bg),
+    0 0 0 4px var(--accent-orange);
 }
 
 .bg-picker-group {
@@ -1423,7 +1425,10 @@ button {
   border-radius: 8px;
   border: 1.5px solid var(--border-color);
   cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
   outline: none;
   position: relative;
   padding: 0;
@@ -1436,10 +1441,11 @@ button {
 
 .bg-swatch.active {
   border-color: var(--accent-orange);
-  box-shadow: 0 0 0 2px var(--card-bg), 0 0 0 4px var(--accent-orange);
+  box-shadow:
+    0 0 0 2px var(--card-bg),
+    0 0 0 4px var(--accent-orange);
 }
 
-/* Previews for bg-swatches */
 .bg-swatch[data-bg="default"] {
   background: linear-gradient(135deg, #ffffff 50%, #1e1b1a 50%);
 }
@@ -1449,13 +1455,27 @@ button {
 .bg-swatch[data-bg="notebook"] {
   background-color: #faf8f5;
   background-image:
-    linear-gradient(90deg, transparent 20%, #fca5a5 20%, #fca5a5 22%, transparent 22%),
+    linear-gradient(
+      90deg,
+      transparent 20%,
+      #fca5a5 20%,
+      #fca5a5 22%,
+      transparent 22%
+    ),
     linear-gradient(rgba(147, 197, 253, 0.4) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 8px;
+  background-size:
+    100% 100%,
+    100% 8px;
 }
 .bg-swatch[data-bg="kraft"] {
   background-color: #e6cbab;
-  background-image: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.01) 0px, rgba(0, 0, 0, 0.01) 1px, transparent 1px, transparent 3px);
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.01) 0px,
+    rgba(0, 0, 0, 0.01) 1px,
+    transparent 1px,
+    transparent 3px
+  );
 }
 .bg-swatch[data-bg="blueprint"] {
   background-color: #1e3a8a;
@@ -1476,10 +1496,13 @@ button {
   display: flex;
   flex-direction: column;
   min-height: 350px;
-  transition: background-color 0.3s ease, padding 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    padding 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-/* Background Specific Card Overrides */
 .playground-editor-card.pg-bg-white {
   background-color: #ffffff !important;
   background-image: none !important;
@@ -1488,18 +1511,36 @@ button {
 .playground-editor-card.pg-bg-notebook {
   background-color: #fdfbf7 !important;
   background-image:
-    /* Red margins */
-    linear-gradient(90deg, transparent 79px, #fca5a5 79px, #fca5a5 80px, transparent 80px, transparent 83px, #fca5a5 83px, #fca5a5 84px, transparent 84px),
-    /* Blue lines */
+    linear-gradient(
+      90deg,
+      transparent 79px,
+      #fca5a5 79px,
+      #fca5a5 80px,
+      transparent 80px,
+      transparent 83px,
+      #fca5a5 83px,
+      #fca5a5 84px,
+      transparent 84px
+    ),
     linear-gradient(rgba(147, 197, 253, 0.4) 1px, transparent 1px) !important;
-  background-size: 100% 100%, 100% 32px !important;
-  background-position: 0 0, 0 12px !important;
+  background-size:
+    100% 100%,
+    100% 32px !important;
+  background-position:
+    0 0,
+    0 12px !important;
   padding-left: 96px !important;
 }
 
 .playground-editor-card.pg-bg-kraft {
   background-color: #dfc299 !important;
-  background-image: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.01) 0px, rgba(0, 0, 0, 0.01) 1px, transparent 1px, transparent 4px) !important;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.01) 0px,
+    rgba(0, 0, 0, 0.01) 1px,
+    transparent 1px,
+    transparent 4px
+  ) !important;
   box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.05) !important;
 }
 
@@ -1528,7 +1569,6 @@ button {
   font-size: 36px;
 }
 
-/* Back to top button */
 .back-to-top {
   position: fixed;
   bottom: 1.5rem;
@@ -1543,7 +1583,10 @@ button {
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.25s ease, visibility 0.25s ease, background 0.15s ease;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    background 0.15s ease;
   z-index: 90;
   box-shadow: var(--shadow-sm);
 }
@@ -1563,7 +1606,6 @@ button {
    10. Mobile Responsiveness Styles
    ========================================================================== */
 @media (max-width: 768px) {
-  /* Hero section adjustments */
   .hero-container {
     grid-template-columns: 1fr;
     padding: 3rem 1.25rem;
@@ -1599,7 +1641,6 @@ button {
     gap: 1rem !important;
   }
 
-  /* Reduce card sizes (padding and border-radius) */
   .example-card,
   .use-case-card,
   .download-card,
@@ -1609,7 +1650,6 @@ button {
     gap: 1rem !important;
   }
 
-  /* Specific typography sizing for cards */
   .example-card,
   .use-case-card {
     font-size: 1.15rem !important;
@@ -1638,7 +1678,6 @@ button {
     gap: 0.4rem !important;
   }
 
-  /* Section padding and margins */
   .examples-container,
   .use-cases-container,
   .downloads-container,
@@ -1660,10 +1699,18 @@ button {
     font-size: 1rem !important;
   }
 
-  .showcase-container h1 { font-size: 2rem !important; }
-  .showcase-container h2 { font-size: 1.6rem !important; }
-  .showcase-container h3 { font-size: 1.4rem !important; }
-  .showcase-container h4 { font-size: 1.2rem !important; }
+  .showcase-container h1 {
+    font-size: 2rem !important;
+  }
+  .showcase-container h2 {
+    font-size: 1.6rem !important;
+  }
+  .showcase-container h3 {
+    font-size: 1.4rem !important;
+  }
+  .showcase-container h4 {
+    font-size: 1.2rem !important;
+  }
 
   .section-title {
     font-size: 2.2rem !important;
@@ -1674,7 +1721,6 @@ button {
     margin-bottom: 2rem !important;
   }
 
-  /* Glyphs container and grid on mobile */
   .glyphs-container {
     padding: 2rem 1.25rem !important;
     border-radius: 16px !important;
@@ -1737,7 +1783,6 @@ button {
   width: 100%;
 }
 
-/* Comic selector pills row */
 .comic-selector {
   display: flex;
   flex-wrap: wrap;
@@ -1745,7 +1790,6 @@ button {
   justify-content: center;
 }
 
-/* Comic editor wrapper constrains the frame max width */
 .comic-editor-wrapper {
   width: 100%;
   max-width: 1100px;
@@ -1756,11 +1800,10 @@ button {
   background-color: var(--card-bg);
 }
 
-/* The frame is the relative-positioned positioning context for the bubbles */
 .comic-editor-frame {
   position: relative;
   width: 100%;
-  line-height: 0; /* removes gap under inline img */
+  line-height: 0;
 }
 
 .comic-image {
@@ -1775,47 +1818,41 @@ button {
   width: 100%;
 }
 
-/* Speech bubble overlay: an absolutely positioned contenteditable div */
 .comic-bubble {
   position: absolute;
   box-sizing: border-box;
 
-  /* WM Font for that authentic handwritten comic feel */
   font-family: "WmFont", sans-serif;
   font-size: calc(var(--bubble-font-size, 14px));
   line-height: 1.35;
   color: #111111;
   text-align: left;
 
-  /* Transparent so the comic background shows through */
   background: transparent;
   border-radius: 8px;
   padding: 6px;
   outline: none;
   cursor: text;
 
-  /* Allow text to wrap naturally within the bubble */
   white-space: pre-wrap;
   word-break: break-word;
   overflow: hidden;
 
-  /* Smooth border transitions */
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-/* Show subtle dashed outline on hover to hint the bubble is editable */
 .comic-bubble:hover {
   border-color: rgba(204, 102, 51, 0.35);
 }
 
-/* Full highlight when actively editing */
 .comic-bubble:focus {
   border-color: var(--accent-orange);
   box-shadow: 0 0 0 3px var(--accent-light);
   background: rgba(255, 255, 255, 0.15);
 }
 
-/* Dark mode: text stays dark since comic backgrounds are light */
 :root.dark .comic-bubble {
   color: #111111;
 }
@@ -1824,13 +1861,11 @@ button {
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* Caption bubble variant (wider, italic) */
 .comic-bubble.caption {
   font-style: italic;
   font-size: calc(var(--bubble-font-size, 16px) * 0.9);
 }
 
-/* Action buttons row */
 .comic-actions {
   display: flex;
   gap: 1rem;
@@ -1839,14 +1874,13 @@ button {
   align-items: center;
 }
 
-/* Download button inherits btn-primary but we add icon alignment */
+/* Download button inherits btn-primary but we need to add icon alignment */
 #comic-download-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
 }
 
-/* Responsive scaling for the section */
 @media (max-width: 768px) {
   .make-a-comic {
     padding: 4rem 1rem 2rem 1rem;
