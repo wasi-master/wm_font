@@ -14,8 +14,8 @@ body:
   - type: input
     id: character
     attributes:
-      label: Character or symbol
-      description: The character(s) that are missing.
+      label: Character(s) or symbol(s)
+      description: The character(s) that are missing. Seperated by spaces if multiple.
       placeholder: "₹"
 
     validations:
@@ -24,7 +24,7 @@ body:
   - type: input
     id: unicode
     attributes:
-      label: Unicode code point (optional)
+      label: Unicode code point(s) (optional)
       description: If known.
       placeholder: "U+20B9"
 
