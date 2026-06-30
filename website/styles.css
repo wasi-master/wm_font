@@ -1782,7 +1782,7 @@ button {
   font-size: calc(var(--bubble-font-size, 14px));
   line-height: 1.35;
   color: #111111;
-  text-align: center;
+  text-align: left;
 
   /* Transparent so the comic background shows through */
   background: transparent;
