@@ -2,7 +2,14 @@ name: Deploy Website Content to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
+    paths:
+      - "website/**"
+
+  pull_request:
+    paths:
+      - "website/**"
 
   workflow_dispatch:
 
