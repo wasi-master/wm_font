@@ -670,6 +670,23 @@ document.addEventListener("DOMContentLoaded", () => {
   // Base reference: the natural image width is treated as 100%.
   // At natural width, font size = 1.55% of the natural width.
   // ------------------------------------------------------------------
+  function getBubbleFontSettings() {
+    const width = window.innerWidth;
+
+    // Keep the comic text readable on smaller screens without overpowering
+    // the speech bubbles. The floor is lower on mobile so the editor can
+    // shrink enough to fit.
+    if (width <= 480) {
+      return { multiplier: 0.72, minPx: 5 };
+    }
+
+    if (width <= 768) {
+      return { multiplier: 0.85, minPx: 6 };
+    }
+
+    return { multiplier: 1, minPx: 8 };
+  }
+
   function updateBubbleFontSize() {
     const key = activeComicKey;
     const comic = COMICS[key];
@@ -680,9 +697,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Scale factor relative to natural width
     const scale = renderedW / comic.naturalW;
+    const { multiplier, minPx } = getBubbleFontSettings();
     // Base font at natural size: driven by each comic's fontScale property
     const basePx = comic.naturalW * (comic.fontScale ?? 0.009);
-    const scaledPx = Math.max(8, Math.round(basePx * scale));
+    const scaledPx = Math.max(minPx, Math.round(basePx * scale * multiplier));
 
     comicFrame.style.setProperty('--bubble-font-size', scaledPx + 'px');
   }
@@ -690,6 +708,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Use ResizeObserver to keep font size in sync as the container resizes
   const resizeObserver = new ResizeObserver(() => updateBubbleFontSize());
   resizeObserver.observe(comicFrame);
+  window.addEventListener('resize', updateBubbleFontSize);
 
   // ------------------------------------------------------------------
   // Switch comic on pill click
@@ -767,6 +786,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ctx.drawImage(img, 0, 0, comic.naturalW, comic.naturalH);
 
       // 2. Draw each bubble's text onto the canvas at full resolution
+      const { multiplier, minPx } = getBubbleFontSettings();
       const baseFontPx = comic.naturalW * (comic.fontScale ?? 0.009); // matches CSS logic
       ctx.fillStyle = '#111111';
       ctx.textBaseline = 'top';
@@ -781,7 +801,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const maxW  = (b.width  / 100) * comic.naturalW - 12;
         const maxH  = (b.height / 100) * comic.naturalH - 12;
 
-        const fontSize = b.caption ? Math.round(baseFontPx * 0.9) : Math.round(baseFontPx);
+        const fontSize = Math.max(
+          minPx,
+          Math.round((b.caption ? baseFontPx * 0.9 : baseFontPx) * multiplier),
+        );
         ctx.font = `${fontSize}px WmFont, sans-serif`;
 
         // Word-wrap helper
