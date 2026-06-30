@@ -41,10 +41,14 @@ friendly_names = {
     "asciitilde": "Tilde",
     "backslash": "Backslash",
     "sterling": "Pound Sign",
+    "cent": "Cent Sign",
     "yen": "Yen Sign",
     "Euro": "Euro Sign",
     "uni20b9": "Indian Rupee Sign",
     "uni09f3": "Bengali Rupee / Taka Sign",
+    "section": "Section Sign",
+    "degree": "Degree Sign",
+    "paragraph": "Pilcrow / Paragraph Sign",
     "copyright": "Copyright Sign",
     "registered": "Registered Trademark",
     "trademark": "Trademark Sign",
@@ -75,8 +79,30 @@ friendly_names = {
     "gamma": "Greek Small Letter Gamma",
     "alpha": "Greek Small Letter Alpha",
     "beta": "Greek Small Letter Beta",
+    "Theta": "Greek Capital Letter Theta",
+    "Sigma": "Greek Capital Letter Sigma",
+    "Phi": "Greek Capital Letter Phi",
+    "epsilon": "Greek Capital Letter Epsilon",
+    "theta": "Greek Small Letter Theta",
     "uni0394": "Greek Capital Letter Delta",
     "uni2206": "Increment / Delta Symbol",
+    "bullet": "Bullet",
+    "arrowleft": "Left Arrow",
+    "arrowup": "Up Arrow",
+    "arrowright": "Right Arrow",
+    "arrowdown": "Down Arrow",
+    "arrowboth": "Left Right Arrow",
+    "carriagereturn": "Carriage Return",
+    "arrowdblleft": "Double Left Arrow",
+    "arrowdblup": "Double Up Arrow",
+    "arrowdblright": "Double Right Arrow",
+    "arrowdbldown": "Double Down Arrow",
+    "arrowdblboth": "Double Left Right Arrow",
+    "partialdiff": "Partial Differential",
+    "gradient": "Gradient",
+    "infinity": "Infinity",
+    "integral": "Integral",
+    "equivalence": "Equivalent To",
     "onethird": "Fraction One Third",
     "onequarter": "Fraction One Quarter",
     "onehalf": "Fraction One Half",
@@ -134,7 +160,7 @@ for name, details in char_blocks:
             elif unicode_dec in [169, 174, 8482]: # ©, ®, ™
                 category = "special"
                 label = friendly_names.get(name, f"Special Character {char}")
-            elif (913 <= unicode_dec <= 937) or (945 <= unicode_dec <= 969) or unicode_dec in [8710, 8721, 8800, 177, 215, 247, 8804, 8805, 8800, 9394, 2206]: # Greek letters and math operators
+            elif (913 <= unicode_dec <= 937) or (945 <= unicode_dec <= 969) or unicode_dec in [8710, 8721, 8800, 177, 215, 247, 8804, 8805, 9394, 8710, 8706, 8711, 8734, 8747, 8801, 8592, 8593, 8594, 8595, 8596, 8633, 8656, 8657, 8658, 8659, 8660, 8901]: # Greek letters and math operators
                 category = "math-greek"
                 label = friendly_names.get(name, f"Math/Greek {char}")
             elif unicode_dec in [8531, 188, 189, 190, 8532, 8539, 8540, 8541, 8542, 8528, 8529, 8530, 8533, 8534, 8535, 8536, 8537, 8538]: # fractions

@@ -1266,5 +1266,187 @@ const GLYPHS_DATA = [
     "html": "&#x1D54E;",
     "name": "Double-Struck Capital W",
     "category": "blackboard"
+  },
+  {
+    "char": "¢",
+    "unicode": "U+00A2",
+    "html": "&#x00A2;",
+    "name": "Cent Sign",
+    "category": "other"
+  },
+  {
+    "char": "§",
+    "unicode": "U+00A7",
+    "html": "&#x00A7;",
+    "name": "Section Sign",
+    "category": "other"
+  },
+  {
+    "char": "°",
+    "unicode": "U+00B0",
+    "html": "&#x00B0;",
+    "name": "Degree Sign",
+    "category": "other"
+  },
+  {
+    "char": "¶",
+    "unicode": "U+00B6",
+    "html": "&#x00B6;",
+    "name": "Pilcrow / Paragraph Sign",
+    "category": "other"
+  },
+  {
+    "char": "Θ",
+    "unicode": "U+0398",
+    "html": "&#x0398;",
+    "name": "Greek Capital Letter Theta",
+    "category": "math-greek"
+  },
+  {
+    "char": "Σ",
+    "unicode": "U+03A3",
+    "html": "&#x03A3;",
+    "name": "Greek Capital Letter Sigma",
+    "category": "math-greek"
+  },
+  {
+    "char": "Φ",
+    "unicode": "U+03A6",
+    "html": "&#x03A6;",
+    "name": "Greek Capital Letter Phi",
+    "category": "math-greek"
+  },
+  {
+    "char": "Ε",
+    "unicode": "U+0395",
+    "html": "&#x0395;",
+    "name": "Greek Capital Letter Epsilon",
+    "category": "math-greek"
+  },
+  {
+    "char": "θ",
+    "unicode": "U+03B8",
+    "html": "&#x03B8;",
+    "name": "Greek Small Letter Theta",
+    "category": "math-greek"
+  },
+  {
+    "char": "•",
+    "unicode": "U+2022",
+    "html": "&#x2022;",
+    "name": "Bullet",
+    "category": "other"
+  },
+  {
+    "char": "←",
+    "unicode": "U+2190",
+    "html": "&#x2190;",
+    "name": "Left Arrow",
+    "category": "math-greek"
+  },
+  {
+    "char": "↑",
+    "unicode": "U+2191",
+    "html": "&#x2191;",
+    "name": "Up Arrow",
+    "category": "math-greek"
+  },
+  {
+    "char": "→",
+    "unicode": "U+2192",
+    "html": "&#x2192;",
+    "name": "Right Arrow",
+    "category": "math-greek"
+  },
+  {
+    "char": "↓",
+    "unicode": "U+2193",
+    "html": "&#x2193;",
+    "name": "Down Arrow",
+    "category": "math-greek"
+  },
+  {
+    "char": "↔",
+    "unicode": "U+2194",
+    "html": "&#x2194;",
+    "name": "Left Right Arrow",
+    "category": "math-greek"
+  },
+  {
+    "char": "↵",
+    "unicode": "U+21B5",
+    "html": "&#x21B5;",
+    "name": "Carriage Return",
+    "category": "other"
+  },
+  {
+    "char": "⇐",
+    "unicode": "U+21D0",
+    "html": "&#x21D0;",
+    "name": "Double Left Arrow",
+    "category": "math-greek"
+  },
+  {
+    "char": "⇑",
+    "unicode": "U+21D1",
+    "html": "&#x21D1;",
+    "name": "Double Up Arrow",
+    "category": "math-greek"
+  },
+  {
+    "char": "⇒",
+    "unicode": "U+21D2",
+    "html": "&#x21D2;",
+    "name": "Double Right Arrow",
+    "category": "math-greek"
+  },
+  {
+    "char": "⇓",
+    "unicode": "U+21D3",
+    "html": "&#x21D3;",
+    "name": "Double Down Arrow",
+    "category": "math-greek"
+  },
+  {
+    "char": "⇔",
+    "unicode": "U+21D4",
+    "html": "&#x21D4;",
+    "name": "Double Left Right Arrow",
+    "category": "math-greek"
+  },
+  {
+    "char": "∂",
+    "unicode": "U+2202",
+    "html": "&#x2202;",
+    "name": "Partial Differential",
+    "category": "math-greek"
+  },
+  {
+    "char": "∇",
+    "unicode": "U+2207",
+    "html": "&#x2207;",
+    "name": "Gradient",
+    "category": "math-greek"
+  },
+  {
+    "char": "∞",
+    "unicode": "U+221E",
+    "html": "&#x221E;",
+    "name": "Infinity",
+    "category": "math-greek"
+  },
+  {
+    "char": "∫",
+    "unicode": "U+222B",
+    "html": "&#x222B;",
+    "name": "Integral",
+    "category": "math-greek"
+  },
+  {
+    "char": "≡",
+    "unicode": "U+2261",
+    "html": "&#x2261;",
+    "name": "Equivalent To",
+    "category": "math-greek"
   }
 ];
