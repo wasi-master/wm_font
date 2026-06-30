@@ -534,23 +534,23 @@
     </p>
     <pre>
       <code class="code-block language-css">
-      @font-face {
-        font-family: 'WM Font';
-        src: url('./WmFont-Regular.woff2') format('woff2'),
-            url('./WmFont-Regular.woff') format('woff'),
-            url('./WmFont-Regular.ttf') format('truetype'),
-            url('./WmFont-Regular.otf') format('opentype'),
-            url('./WmFont-Regular.svg#WMFont') format('svg');
-        font-weight: normal;
-        font-style: normal;
-      }
+@font-face {
+  font-family: 'WM Font';
+  src: url('./WmFont-Regular.woff2') format('woff2'),
+      url('./WmFont-Regular.woff') format('woff'),
+      url('./WmFont-Regular.ttf') format('truetype'),
+      url('./WmFont-Regular.otf') format('opentype'),
+      url('./WmFont-Regular.svg#WMFont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
       </code></pre>
     <p>After including the font, you can use it in your CSS like this:</p>
     <pre>
       <code class="code-block language-css">
-      body {
-        font-family: 'WM Font', sans-serif;
-      }
+body {
+  font-family: 'WM Font', sans-serif;
+}
       </code></pre>
     <p>Make sure to adjust the file paths in the `src` property to point to the correct location of the font files in
       your project relative to your CSS file.</p>
