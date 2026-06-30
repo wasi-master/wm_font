@@ -581,12 +581,12 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         id: 'c2-b4',
-        text: "I'm lost. My home is in the big tree over the hill",
-        left: 61.8, top: 68.2, width: 9, height: 8
+        text: "I'm lost. I don't know how to get home.",
+        left: 61.8, top: 69.2, width: 9, height: 8
       },
       {
         id: 'c2-b5',
-        text: "Don't worry, I'll help you get home! The adventure just got even more exciting!",
+        text: "Don't worry, I'll help you get home! The adventure just got even better!",
         left: 75, top: 61, width: 11.5, height: 8.9
       }
     ]

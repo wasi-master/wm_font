@@ -1786,16 +1786,15 @@ button {
 
   /* Transparent so the comic background shows through */
   background: transparent;
-  border: 2px dashed transparent;
   border-radius: 8px;
-  padding: 6px 8px;
+  padding: 6px;
   outline: none;
   cursor: text;
 
   /* Allow text to wrap naturally within the bubble */
   white-space: pre-wrap;
   word-break: break-word;
-  overflow: visible;
+  overflow: hidden;
 
   /* Smooth border transitions */
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -1858,5 +1857,8 @@ button {
   .comic-actions button {
     width: 100%;
     max-width: 320px;
+  }
+  .comic-bubble {
+    padding: 4px;
   }
 }
